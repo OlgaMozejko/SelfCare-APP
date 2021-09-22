@@ -3,9 +3,9 @@
  * "path": "id of page in DOM"
  */
 const routes = {
-    "#/": "users",
-    "#/create": "create",
-    "#/update": "update"
+    "#/": "home",
+    "#/fav": "fav",
+    "#/settings": "settings"
 };
 
 /**
