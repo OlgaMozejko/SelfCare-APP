@@ -1,7 +1,7 @@
 /* ---------- root variables ---------- */
 :root {
   --black: #583953;
-  --white: #F9F7F7;
+  --white: #F9F8F8;
   --peach-light: #F7EFEB;
   --peach: #FBE1D5;
   --peach-dark: #FFAC85;
@@ -13,9 +13,6 @@ html {}
 body {
   margin: 0;
   background-color: var(--peach-light);
-  max-width: 425px;
-  max-height: 896px;
-  overflow: hidden;
 
 }
 
@@ -65,6 +62,7 @@ h5 {
   font-family: urbane-rounded, sans-serif;
   font-weight: 300;
   text-transform: none;
+  margin: -5px 0;
 }
 
 h6 {
@@ -254,7 +252,7 @@ svg {
   }
 }
 
-/* ---------- input form stryling ---------- */
+/* ---------- input form styling - Marius ---------- */
 
 button {
   font-size: 1em;
@@ -291,11 +289,55 @@ input {
 /* Favorites tab - Marius */
 
 .favorites-text-container {
-  width: 76%;
+  width: 78%;
   text-align: center;
   margin: 0 auto;
-  margin-top: 54px;
 }
+
+.favorites-wrapper {
+  background-color: var(--white);
+  height: 731px;
+  margin: 25px 0 0 0;
+  border-radius: 44px 44px 0 0;
+}
+
+.favorites-container {
+  margin: 0 auto;
+  width: 78%;
+  padding-top: 35px;
+}
+
+.favorites-select {
+  color: var(--black);
+  font-size: 0.75em;
+  font-weight: 500;
+  text-transform: none;
+  padding: 5px 25px 5px 15px;
+  /* width: 135px;
+  height: 25px; */
+  border-radius: 7px;
+  border: 0px;
+  background: url("../img/icons/Icon\ awesome-arrow-down.svg") no-repeat right;
+  background-color: var(--peach);
+  -webkit-appearance: none;
+  background-position-x: 102px;
+}
+
+option {
+  color: var(--black);
+  font-size: .75em;
+  border-radius: 7px;
+  border: 0px;
+
+}
+
+select:focus {
+  color: #A98C93;
+}
+
+
+
+
 
 /* End of favorites tab */
 
