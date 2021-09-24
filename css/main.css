@@ -8,17 +8,15 @@
 }
 
 /* ---------- general styling ---------- */
-html {
-  color: var(--text-color-dark);
-  font-family: var(--font-family);
-  height: 100%;
-  text-align: center;
-  width: 100%;
-}
+html {}
 
 body {
   margin: 0;
-  background-color: var(--peach-light)
+  background-color: var(--peach-light);
+  max-width: 425px;
+  max-height: 896px;
+  overflow: hidden;
+
 }
 
 p {
@@ -164,6 +162,7 @@ button {
 }
 
 
+
 .nav-link {
   font-size: 0.5em;
   font-family: urbane-rounded, sans-serif;
@@ -172,14 +171,8 @@ button {
   display: block;
 }
 
-.nav-icon {
-  height: 21px;
-  width: auto;
-}
-
-.nav-icon-active {
-  height: 21px;
-  width: auto;
+svg {
+  margin: 0 auto;
 }
 
 .menu-item {

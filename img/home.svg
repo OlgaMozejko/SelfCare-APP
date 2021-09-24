@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.048" height="21.917" viewBox="0 0 25.048 21.917">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d2cdc6;
+      }
+    </style>
+  </defs>
+  <path id="home" class="cls-1" d="M12.524,0,0,9.393H3.131V21.917H9.393V15.655h6.262v6.262h6.262V9.3l3.131.094Z"/>
+</svg>
