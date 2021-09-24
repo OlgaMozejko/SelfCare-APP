@@ -16,8 +16,16 @@
 <body>
   <!-- tab bar navigation -->
   <nav class="tabbar">
-    <a href="#/" class="nav-link">home</a>
-    <a href="#/fav" class="nav-link">fav</a>
+    <div class="menu-item">
+      <img src="img/icons/home.svg" class="nav-icon" alt="icon">
+      <img src="img/icons/home-active.svg" class="nav-icon-active" alt="icon">
+      <a href="#/" class="nav-link-active">Home</a>
+    </div>
+    <div class="menu-item"><img src="img/icons/heart.svg" class="nav-icon" alt="icon"><a href="#/favorites"
+        class="nav-link">Favorites</a>
+    </div>
+    <div class="menu-item"><img src="img/icons/settings.svg" class="nav-icon" alt="icon"><a href="#/settings"
+        class="nav-link">Settings</a></div>
   </nav>
 
   <!-- pages -->
@@ -32,7 +40,7 @@
   </section>
 
 
-  <section id="fav" class="page">
+  <section id="favorites" class="page">
     <header class="topbar">
       <a href="#/" class="nav-link left">Back</a>
 

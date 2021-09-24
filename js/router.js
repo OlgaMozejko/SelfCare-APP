@@ -4,7 +4,7 @@
  */
 const routes = {
     "#/": "home",
-    "#/fav": "fav",
+    "#/favorites": "favorites",
     "#/settings": "settings"
 };
 
