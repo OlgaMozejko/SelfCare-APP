@@ -59,15 +59,20 @@ function hideAllPages() {
 }
 
 /**
- * sets active tabbar/ menu item
+ * sets active tab bar/ menu item
  */
 function setActiveTab(pathname) {
     const navLinks = document.querySelectorAll("nav a");
+    const path = document.querySelector("path");
     for (const link of navLinks) {
         if (pathname === link.getAttribute("href")) {
             link.classList.add("active");
+            path.classList.add("active");
         } else {
             link.classList.remove("active");
+            path.classList.remove("active");
         }
     }
+
+
 }

@@ -157,11 +157,12 @@ button {
 
 /* Add a color to the active/current link */
 .tabbar a.active {
-  background-color: var(--light-green);
   color: var(--peach-dark);
 }
 
-
+.tabbar path.active {
+  fill: var(--peach-dark);
+}
 
 .nav-link {
   font-size: 0.5em;
@@ -169,6 +170,10 @@ button {
   font-weight: 300;
   color: #D2CDC6;
   display: block;
+}
+
+path {
+  fill: #d2cdc6;
 }
 
 svg {
