@@ -13,6 +13,8 @@
 
 html,
 body {
+  max-width: 400px;
+  max-height: 900px;
   margin: 0 auto;
   background-color: var(--peach-light);
 }
