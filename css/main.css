@@ -13,26 +13,8 @@
 
 html,
 body {
-  max-width: 400px;
-  max-height: 800px;
   margin: 0 auto;
   background-color: var(--peach-light);
-  overflow-x: auto;
-  overflow-y: auto;
-}
-
-body::-webkit-scrollbar {
-  width: 10px;               
-}
-
-body::-webkit-scrollbar-track {
-  background: var(--peach-light);
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: var(--peach-dark);
-  border-radius: 20px; 
-  border: 3px solid var(--peach); 
 }
 
 
@@ -128,6 +110,7 @@ img {
   top: 28px;
 }
 
+
 .topbar a.right {
   right: 20px;
 }
@@ -135,9 +118,7 @@ img {
 /* ---------- tabbar styling ---------- */
 .tabbar {
   background-color: #FAFAFA;
-  /*position: fixed;*/
-  position: sticky;
-  top: 730px;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -305,3 +286,59 @@ select:focus {
 
 /* End of favorites tab */
 
+/*media query for larger screens*/
+
+/*
+
+html,
+body {
+  max-width: 400px;
+  max-height: 800px;
+  margin: 0 auto;
+  margin-top: -50px;
+  background-color: var(--peach-light);
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;               
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--peach-light);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--peach-dark);
+  border-radius: 20px; 
+  border: 3px solid var(--peach); 
+}
+
+.topbar a {
+  text-decoration: none;
+  color: var(--text-color-light);
+  position: static;
+  top: 20px;
+}
+
+.topbar {
+  background-color: var(--green);
+  color: var(--text-color-light);
+  padding: 13.5px;
+  text-transform: uppercase;
+  position: static;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.tabbar {
+  background-color: #FAFAFA;
+  position: sticky;
+  top: 730px;
+}
+
+
+*/
