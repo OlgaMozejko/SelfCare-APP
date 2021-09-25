@@ -64,7 +64,7 @@
       </a>
     </header>
     <article id="messages"></article>
-    <button>Ready</button>
+    <button class="filledButton">Ready</button>
     <input placeholder="Your name" />
   </section>
 
@@ -81,10 +81,30 @@
     <section class="favorites-wrapper">
 
       <div class="favorites-container">
+        <div class="filter-container">
+          <button id="all" value="all" class="filterByEmotions selected"
+            onclick="filterByEmotions(this.value)">all</button>
+          <button id="sad" value="sad" class="filterByEmotions" onclick="filterByEmotions(this.value)">sad</button>
+          <button id="frustrated" value="frustrated" class="filterByEmotions"
+            onclick="filterByEmotions(this.value)">frustrated</button>
+          <button id="happy" value="happy" class="filterByEmotions"
+            onclick="filterByEmotions(this.value)">happy</button>
+          <button id="stressed" value="stressed" class="filterByEmotions"
+            onclick="filterByEmotions(this.value)">stressed</button>
+          <button id="tired" value="tired" class="filterByEmotions"
+            onclick="filterByEmotions(this.value)">tired</button>
+          <button id="anxious" value="anxious" class="filterByEmotions"
+            onclick="filterByEmotions(this.value)">anxious</button>
+          <button id="unmotivated" value="unmotivated" class="filterByEmotions"
+            onclick="filterByEmotions(this.value)">unmotivated</button>
+          <button id="indifferent" value="indifferent" class="filterByEmotions"
+            onclick="filterByEmotions(this.value)">indifferent</button>
+        </div>
         <select id="sortBy" onchange="orderBy(this.value)" class="favorites-select">
           <option value="" selected disabled>Order activities</option>
-          <option value="indoors">Indoors</option>
-          <option value="outdoors">Outdoors</option>
+          <option value="environment">Environment</option>
+          <option value="latest">Latest</option>
+          <option value="oldest">Oldest</option>
         </select>
 
         <section class="favorites"></section>
