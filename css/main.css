@@ -8,13 +8,33 @@
 }
 
 /* ---------- general styling ---------- */
-html {}
 
+
+
+html,
 body {
-  margin: 0;
+  max-width: 400px;
+  max-height: 800px;
+  margin: 0 auto;
   background-color: var(--peach-light);
-
+  overflow-x: auto;
+  overflow-y: auto;
 }
+
+body::-webkit-scrollbar {
+  width: 10px;               
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--peach-light);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--peach-dark);
+  border-radius: 20px; 
+  border: 3px solid var(--peach); 
+}
+
 
 p {
   font-family: urbane-rounded, sans-serif;
@@ -84,7 +104,7 @@ img {
   color: var(--text-color-light);
   padding: 13.5px;
   text-transform: uppercase;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -115,7 +135,9 @@ img {
 /* ---------- tabbar styling ---------- */
 .tabbar {
   background-color: #FAFAFA;
-  position: fixed;
+  /*position: fixed;*/
+  position: sticky;
+  top: 730px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -192,65 +214,7 @@ svg {
   max-width: 300px;
 }
 
-/* ---------- animations ---------- */
-/* fade in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
 
-  to {
-    opacity: 1;
-  }
-}
-
-/* ---------- loader styling ---------- */
-#loader {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 9999999999;
-  overflow: hidden;
-  background: var(--loader-background-color);
-  text-align: center;
-}
-
-.spinner {
-  border: 5px solid var(--light-grey);
-  border-radius: 50%;
-  border-top: 5px solid var(--light-green);
-  width: 50px;
-  height: 50px;
-  -webkit-animation: spin 1s linear infinite;
-  /* Safari */
-  animation: spin 1s linear infinite;
-  display: inline-block;
-  vertical-align: middle;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.hide {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 0.4s, opacity 0.4s linear;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 /* ---------- input form styling - Marius ---------- */
 
@@ -341,51 +305,3 @@ select:focus {
 
 /* End of favorites tab */
 
-
-
-
-
-
-/* ---------- grid container styling ---------- */
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 1em;
-  gap: 1em;
-}
-
-@media (min-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 992px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-.grid-container>article {
-  text-align: center;
-  padding: 2em 1em;
-  background-color: var(--white);
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.grid-container>article:hover {
-  box-shadow: 0 8px 16px 0 var(--green-opacity);
-}
-
-.grid-container>article img {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-}
-
-.image-preview {
-  width: 100%;
-  height: auto;
-  margin: 1em 0;
-}
