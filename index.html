@@ -45,8 +45,63 @@
   </nav>
 
   <!-- pages -->
-
+  <!-- arrow back
+  <header class="topbar">
+    <a href="#/" class="nav-link left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25.075" height="24.44" viewBox="0 0 25.075 24.44">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: #f6a580;
+            }
+          </style>
+        </defs>
+        <path id="Icon_awesome-arrow-down" data-name="Icon awesome-arrow-down" class="cls-1"
+          d="M23.2,12.911l1.242,1.242a1.338,1.338,0,0,1,0,1.9L13.568,26.93a1.338,1.338,0,0,1-1.9,0L.792,16.051a1.338,1.338,0,0,1,0-1.9l1.242-1.242a1.345,1.345,0,0,1,1.92.022l6.425,6.744V3.593A1.34,1.34,0,0,1,11.722,2.25h1.791a1.34,1.34,0,0,1,1.343,1.343V19.677l6.425-6.744A1.335,1.335,0,0,1,23.2,12.911Z"
+          transform="translate(27.325 -0.397) rotate(90)" />
+      </svg>
+    </a>
+  </header>
+-->
+<!-- home page - Olga -->
   <section id="home" class="page">
+    <div class="welcoming-message" id="welcoming-message"></div>
+    <h5 class="daily-message"><div id="messages"></h5></div>
+    <section class="home-wrapper">
+    <div>
+      <h2 class="home-text1 home-top">How are you feeling<br>right now?</h2>
+      <h5 class="home-text1">which illustration describes your feeling best?</h5>
+    </div>
+    <div class="emotions">
+      <div class="subemotions">
+        <div><a href="#/timeSelection" class="nav-link"><img src="img/happy.png" alt="happy face illustration" class="img-emotion"></a>
+        <h6>HAPPY</h6></div>
+        <div><a href="#/timeSelection" class="nav-link"><img src="img/indiffrent.png" alt="illustration of feeling indiffrent" class="img-emotion"></a>
+        <h6>INDIFFERENT</h6></div>
+        <div><a href="#/timeSelection" class="nav-link"><img src="img/sad2.png" alt="illustration of sadness" class="img-emotion"></a>
+        <h6>SAD</h6></div>
+      </div>
+      <div class="subemotions">
+        <div><a href="#/timeSelection" class="nav-link"><img src="img/unmotivated.png" alt="illustration of feeling unmotivated" class="img-emotion"></a>
+          <h6>UNMOTIVATED</h6></div>
+          <div><a href="#/timeSelection" class="nav-link"><img src="img/tired.png" alt="feeling tired illustration" class="img-emotion"></a>
+        <h6>TIRED</h6></div>
+        <div><a href="#/timeSelection" class="nav-link"><img src="img/stressed.png" alt="being stressed illustration" class="img-emotion"></a>
+        <h6>STRESSED</h6></div>
+      </div>
+      <div class="subemotions2">
+        <div><a href="#/timeSelection" class="nav-link"><img src="img/frustrated.png" alt="illustration of feeling frustrated" class="img-emotion"></a>
+        <h6>FRUSTRATED</h6></div>
+        <div><a href="#/timeSelection" class="nav-link"><img src="img/anxious.png" alt="illustration of feeling anxious" class="img-emotion last-emotion"></a>
+        <h6>ANXIOUS</h6></div>
+      </div>
+    </div>
+    <h5 class="home-text1">Can't decide?</h5>
+    <div class="quiz-butt"><button>Let us help you!</button></div>
+  </section></section>
+
+  <!-- time selection - Olga -->
+  <section id="timeSelection" class="page">
     <header class="topbar">
       <a href="#/" class="nav-link left">
         <svg xmlns="http://www.w3.org/2000/svg" width="25.075" height="24.44" viewBox="0 0 25.075 24.44">
@@ -63,9 +118,51 @@
         </svg>
       </a>
     </header>
-    <article id="messages"></article>
-    <button class="filledButton">Ready</button>
-    <input placeholder="Your name" />
+    <section class="time-selection-wrapper" id="time-selection-wrapper">
+      <h5 class="changing-text" id="changing-text"></h5>
+
+      <section class="time-white-wrapper">
+          <div>
+            <h2 class="home-top home-text1">How much time would<br>you like to spend on the activity?</h2><br>
+            <h5 class="home-text1">It helps to filter results for a better experience ❤</h5>
+          </div>
+          <div class="time-select-container">
+          <select id="time-select" class="time-select" onchange="navigateTo(this.value);">
+            <option value="#/timeSelection" selected>🕒 Select the time</option>
+            <option value="#/allActivities" id="5min">🕒 5 min</option>
+            <option value="#/allActivities" id="10min">🕒 10 min</option>
+            <option value="#/allActivities" id="20min">🕒 20 min</option>
+            <option value="#/allActivities" id="30min">🕒 30+ min</option>
+          </select></div>
+      </section>
+    </section>
+
+  </section>
+
+  <!--- Activities - Olga+someone -->
+
+  <section id="allActivities" class="page">
+    <header class="topbar">
+      <a href="#/" class="nav-link left">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25.075" height="24.44" viewBox="0 0 25.075 24.44">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: #f6a580;
+              }
+            </style>
+          </defs>
+          <path id="Icon_awesome-arrow-down" data-name="Icon awesome-arrow-down" class="cls-1"
+            d="M23.2,12.911l1.242,1.242a1.338,1.338,0,0,1,0,1.9L13.568,26.93a1.338,1.338,0,0,1-1.9,0L.792,16.051a1.338,1.338,0,0,1,0-1.9l1.242-1.242a1.345,1.345,0,0,1,1.92.022l6.425,6.744V3.593A1.34,1.34,0,0,1,11.722,2.25h1.791a1.34,1.34,0,0,1,1.343,1.343V19.677l6.425-6.744A1.335,1.335,0,0,1,23.2,12.911Z"
+            transform="translate(27.325 -0.397) rotate(90)" />
+        </svg>
+      </a>
+    </header>
+    <section class="activities-wrapper">
+      <div id="activities-container"></div>
+
+    </section>
+
   </section>
 
   <!-- Favorite tab - Marius -->
@@ -81,30 +178,10 @@
     <section class="favorites-wrapper">
 
       <div class="favorites-container">
-        <div class="filter-container">
-          <button id="all" value="all" class="filterByEmotions selected"
-            onclick="filterByEmotions(this.value)">all</button>
-          <button id="sad" value="sad" class="filterByEmotions" onclick="filterByEmotions(this.value)">sad</button>
-          <button id="frustrated" value="frustrated" class="filterByEmotions"
-            onclick="filterByEmotions(this.value)">frustrated</button>
-          <button id="happy" value="happy" class="filterByEmotions"
-            onclick="filterByEmotions(this.value)">happy</button>
-          <button id="stressed" value="stressed" class="filterByEmotions"
-            onclick="filterByEmotions(this.value)">stressed</button>
-          <button id="tired" value="tired" class="filterByEmotions"
-            onclick="filterByEmotions(this.value)">tired</button>
-          <button id="anxious" value="anxious" class="filterByEmotions"
-            onclick="filterByEmotions(this.value)">anxious</button>
-          <button id="unmotivated" value="unmotivated" class="filterByEmotions"
-            onclick="filterByEmotions(this.value)">unmotivated</button>
-          <button id="indifferent" value="indifferent" class="filterByEmotions"
-            onclick="filterByEmotions(this.value)">indifferent</button>
-        </div>
         <select id="sortBy" onchange="orderBy(this.value)" class="favorites-select">
           <option value="" selected disabled>Order activities</option>
-          <option value="environment">Environment</option>
-          <option value="latest">Latest</option>
-          <option value="oldest">Oldest</option>
+          <option value="indoors">Indoors</option>
+          <option value="outdoors">Outdoors</option>
         </select>
 
         <section class="favorites"></section>

@@ -5,7 +5,10 @@
 const routes = {
     "#/": "home",
     "#/favorites": "favorites",
-    "#/settings": "settings"
+    "#/settings": "settings",
+    "#/timeSelection": "timeSelection",
+    "#/allActivities": "allActivities"
+
 };
 
 /**
@@ -70,61 +73,4 @@ function setActiveTab(pathname) {
             link.classList.remove("active");
         }
     }
-}
-
-// order function - Marius
-function orderBy(value) {
-    if (value === "environment") {
-        orderByBrand();
-    } else if (value === "latest") {
-        orderByModel();
-    } else if (value === "oldest") {
-        orderByModel();
-    }
-}
-
-// order by environment of the activity function - Marius
-function orderByIndoors() {
-    _activities.sort((activity1, activity2) => {
-        return activity1.environment.localeCompare(activity2.environment);
-    });
-    appendProducts(_activities);
-}
-
-// order by latest activities function - Marius
-function orderByLatest() {
-    _activities.sort((activity1, activity2) => {
-        return activity1.date.localeCompare(activity2.date);
-    });
-    appendProducts(_activities);
-}
-
-// order by oldest activities function - Marius
-function orderByOldest() {
-    _activities.sort((activity1, activity2) => {
-        return activity2.date.localeCompare(activity1.date);
-    });
-    appendProducts(_activities);
-}
-// filter by emotions function - Marius
-function filterByEmotions(value) {
-    const buttons = document.querySelectorAll(".filter-container .filterByEmotions");
-    for (const button of buttons)
-        if (value === button.getAttribute("id")) {
-            button.classList.add('selected');
-        } else {
-            button.classList.remove('selected');
-        }
-
-    if (value == "all") {
-        appendProducts(_activities);
-    } else {
-        const results = _activities.filter(activity => activity.emotionType == value);
-        appendProducts(results)
-    }
-}
-
-// reset by emotions function - Marius
-function resetFilterByEmotions() {
-    document.querySelector("#filterByEmotions").value = "all";
 }
