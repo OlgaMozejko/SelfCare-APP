@@ -159,7 +159,7 @@
 
   </section>
 
-  <!--- Activities - Olga+someone -->
+  <!--- Activities - Olga+Vlada -->
 
   <section id="allActivities" class="page">
     <header class="topbar">
@@ -178,8 +178,17 @@
         </svg>
       </a>
     </header>
+     <div class="allActivities-heading">
+      <h2 class="activities-heading">We picked the best activities for you 🥰</h2>
+      <h5 class="activities-subheading">Hope that you find something at your own pleasure.</h5>
+      </div>
     <section class="activities-wrapper">
-      <div id="activities-container"></div>
+      <select id="sortBy" onchange="orderBy(this.value)" class="activities-select">
+          <option value="" selected disabled>Order activities</option>
+          <option value="indoors">Indoors</option>
+          <option value="outdoors">Outdoors</option>
+        </select>
+      <div id="activities-container" class="activities-container"></div>
 
     </section>
 

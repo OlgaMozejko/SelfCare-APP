@@ -1,23 +1,21 @@
 /* ---------- root variables ---------- */
 :root {
   --black: #583953;
-  --white: #F9F8F8;
-  --peach-light: #F7EFEB;
-  --peach: #FBE1D5;
-  --peach-dark: #FFAC85;
-  --sad-blue: #899AD9;
-  --happy-yellow: #FFD654;
-  --indiffrent-brown: #DED0B5;
-  --unmotivated-green: #80CD7C;
-  --tired-purple: #C3B9DE;
-  --stressed-grey: #B6B4BF;
-  --frustrated-red: #E37373;
-  --anxious-purple: #9C6AA8;
+  --white: #f9f8f8;
+  --peach-light: #f7efeb;
+  --peach: #fbe1d5;
+  --peach-dark: #ffac85;
+  --sad-blue: #899ad9;
+  --happy-yellow: #ffd654;
+  --indiffrent-brown: #ded0b5;
+  --unmotivated-green: #80cd7c;
+  --tired-purple: #c3b9de;
+  --stressed-grey: #b6b4bf;
+  --frustrated-red: #e37373;
+  --anxious-purple: #9c6aa8;
 }
 
 /* ---------- general styling ---------- */
-
-
 
 html,
 body {
@@ -26,7 +24,6 @@ body {
   margin: 0 auto;
   background-color: var(--peach-light);
 }
-
 
 p {
   font-family: urbane-rounded, sans-serif;
@@ -89,7 +86,6 @@ img {
   height: auto;
 }
 
-
 /* ---------- topbar styling ---------- */
 .topbar {
   background-color: var(--green);
@@ -120,20 +116,19 @@ img {
   top: 28px;
 }
 
-
 .topbar a.right {
   right: 20px;
 }
 
 /* ---------- tabbar styling ---------- */
 .tabbar {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-  box-shadow: 0px 40px 99px #AFADAD;
+  box-shadow: 0px 40px 99px #afadad;
   border-radius: 35px 35px 0 0;
   display: flex;
   flex-direction: row;
@@ -167,7 +162,7 @@ img {
   font-size: 0.5em;
   font-family: urbane-rounded, sans-serif;
   font-weight: 300;
-  color: #D2CDC6;
+  color: #d2cdc6;
   display: block;
 }
 
@@ -186,7 +181,6 @@ svg {
   padding: 0 9%;
 }
 
-
 /* ---------- page styling ---------- */
 .page {
   display: none;
@@ -204,8 +198,6 @@ svg {
   width: 100%;
   max-width: 300px;
 }
-
-
 
 /* ---------- input form styling - Marius ---------- */
 
@@ -280,13 +272,13 @@ input {
 
 option {
   color: var(--black);
-  font-size: .75em;
+  font-size: 0.75em;
   border-radius: 7px;
   border: 0px;
 }
 
 select:focus {
-  color: #A98C93;
+  color: #a98c93;
 }
 
 .filter-container {
@@ -298,7 +290,7 @@ select:focus {
   column-gap: 5px;
 }
 
-.filter-container>* {
+.filter-container > * {
   flex: 1;
 }
 
@@ -313,7 +305,6 @@ select:focus {
   width: none;
   cursor: pointer;
   margin: 0 auto;
-
 }
 
 .selected {
@@ -321,10 +312,7 @@ select:focus {
   color: var(--white);
 }
 
-
-
 /* End of favorites tab */
-
 
 /* ----------- home page styling - Olga ----------*/
 
@@ -464,17 +452,80 @@ select:focus {
 
 option {
   color: var(--black);
-  font-size: .75em;
+  font-size: 0.75em;
   border-radius: 7px;
   border: 0px;
-
 }
 
 select:focus {
-  color: #A98C93;
+  color: #a98c93;
 }
 
+/*---------Activities tab - Vlada-------*/
 
+#allActivitities {
+  background-color: var(--peach);
+}
+
+.allActivities-heading {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  padding: 0 2em;
+  margin-bottom: 1.5em;
+}
+
+.activities-heading {
+  letter-spacing: 0px;
+  color: var(--black);
+  font-weight: 500;
+}
+
+.activities-subheading {
+  letter-spacing: 0px;
+  color: var(--black);
+}
+
+.activities-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2em;
+  gap: 1.5em;
+}
+
+.activities-container > article {
+  text-align: center;
+  padding: 0.7em 2em;
+  background-color: var(--sad-blue);
+  transition: 0.3s;
+  border-radius: 1.5em;
+  color: var(--black);
+}
+
+.activities-wrapper {
+  background-color: var(--white);
+  height: 600px;
+  margin: 25px 0 0 0;
+  border-radius: 44px 44px 0 0;
+}
+
+.activities-select {
+  color: var(--black);
+  font-size: 0.75em;
+  font-weight: 500;
+  text-transform: none;
+  padding: 5px 25px 5px 15px;
+  /* width: 135px;
+  height: 25px; */
+  border-radius: 7px;
+  border: 0px;
+  background: url("../img/icons/Icon\ awesome-arrow-down.svg") no-repeat right;
+  background-color: var(--peach);
+  -webkit-appearance: none;
+  background-position-x: 102px;
+  margin: 2em;
+  margin-bottom: 0;
+}
 
 /*media query for larger screens*/
 
