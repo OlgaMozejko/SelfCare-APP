@@ -1,4 +1,4 @@
-//Olga 
+//---------------- Olga ---------------
 //daily motivations message for the user
 
 //array of messages

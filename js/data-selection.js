@@ -1,4 +1,4 @@
-//Olga
+//----------- Olga ---------------
 
 //fetch data from wordpress headless cms
 //using it for mood-category selecting 

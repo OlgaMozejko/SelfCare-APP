@@ -7,7 +7,7 @@
   --peach-dark: #FFAC85;
   --sad-blue: #899AD9;
   --happy-yellow: #FFD654;
-  --indiffremt-brown: #DED0B5;
+  --indiffrent-brown: #DED0B5;
   --unmotivated-green: #80CD7C;
   --tired-purple: #C3B9DE;
   --stressed-grey: #B6B4BF;
@@ -418,7 +418,6 @@ select:focus {
 /*---------- time selection styling - Olga -----*/
 
 .time-selection-wrapper {
-  background-color: var(--sad-blue);
   opacity: 70%;
   height: 400px;
   margin: 20px 0 0 0;
@@ -426,7 +425,7 @@ select:focus {
 }
 
 .changing-text {
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
   padding-top: 80px;
   padding-right: 60px;

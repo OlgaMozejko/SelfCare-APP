@@ -1,4 +1,4 @@
-// Olga
+// -------------- Olga ------------------
 
 //vip need input name... 
 //so meantime simple message print out
