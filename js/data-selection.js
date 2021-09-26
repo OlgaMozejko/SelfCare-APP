@@ -1,6 +1,7 @@
 //Olga
 
 //fetch data from wordpress headless cms
+//using it for mood-category selecting 
 
 
 class MoodSelector {
@@ -19,48 +20,43 @@ class MoodSelector {
 
   async getPosts() {
     let data = await fetch('http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed').then(res => res.json());
-    console.log(data);
     this.posts = data;
     this.appendPosts(this.posts);
   }
 
   async getCategories() {
     let data = await fetch('http://appcontent.omozejko.com/wp-json/wp/v2/categories').then(res => res.json());
-    console.log(data);
     this.categories = data;
     this.appendCategories();
   }
 
   async getTags() {
     let data = await fetch('http://appcontent.omozejko.com/wp-json/wp/v2/tags').then(res => res.json());
-    console.log(data);
     this.tags = data;
     this.appendTags();
   }
 
   async getPostsByCategory(categoryId) {
-    console.log(categoryId);
     let data = await fetch(`http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&categories=${categoryId}`).then(res => res.json());
     this.appendPostsByCategory(data);
   }
 
   async getPostsByTags(tagId) {
-    console.log(tagId);
-    let data = await fetch(`http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&tags=${categoryId}`).then(res => res.json());
+    let data = await fetch(`http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&tags=${tagId}`).then(res => res.json());
     this.appendPostsByTags(data);
   }
 
   appendPosts(posts) {
     let htmlTemplate = "";
     for (let post of posts) {
-      htmlTemplate += /*html*/ `
+      htmlTemplate += `
         <article>
             <h2>${post.title.rendered}</h2>
             <p>${post.acf.description}</p>
         </article>
     `;
     }
-    document.querySelector('#activities-container').innerHTML = htmlTemplate;
+    //document.querySelector('#activities-container').innerHTML = htmlTemplate;
   }
 
   appendCategories() {
@@ -84,6 +80,29 @@ class MoodSelector {
     //document.querySelector('#activities-container').innerHTML = htmlTemplate;
   }
 
+  appendPostsByTags() {
+    let htmlTemplate = "";
+    for (let post of posts) {
+      htmlTemplate += /*html*/ `
+      <article>
+      <h2>${post.title.rendered}</h2>
+      <p>${post.acf.description}</p>
+      </article>
+    `;
+    }
+    // if no movies, display feedback to the user
+    if (posts.length === 0) {
+      htmlTemplate = /*html*/`
+        <p>No Activities</p>
+      `;
+    }
+
+    document.querySelector('#activities-container').innerHTML = htmlTemplate;
+  }
+
+
+//using this finction for mood selection : moods = categories
+
   appendPostsByCategory(posts) {
     let htmlTemplate = "";
     for (let post of posts) {
@@ -95,13 +114,19 @@ class MoodSelector {
     `;
     }
     // if no movies, display feedback to the user
-    if (movies.length === 0) {
+    if (posts.length === 0) {
       htmlTemplate = /*html*/`
         <p>No Activities</p>
       `;
     }
 
-    //document.querySelector('#movies-by-category-container').innerHTML = htmlTemplate;
+    document.querySelector('#activities-container').innerHTML = htmlTemplate;
+  }
+
+  search(value) {
+    let searchValue = value.toLowerCase();
+    let filteredPosts = this.posts.filter(post => post.tagId.toLowerCase().includes(searchValue));
+    this.appendPosts(filteredPosts);
   }
 
 
