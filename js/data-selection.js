@@ -37,7 +37,8 @@ class MoodSelector {
   }
 
   async getPostsByCategory(categoryId) {
-    let data = await fetch(`http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&categories=${categoryId}`).then(res => res.json());
+    let url = `http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&categories=${categoryId}`;
+    let data = await fetch(url).then(res => res.json());
     this.appendPostsByCategory(data);
   }
 
@@ -45,6 +46,8 @@ class MoodSelector {
     let data = await fetch(`http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&tags=${tagId}`).then(res => res.json());
     this.appendPostsByTags(data);
   }
+
+ 
 
   appendPosts(posts) {
     let htmlTemplate = "";
@@ -67,7 +70,7 @@ class MoodSelector {
       `;
     }
 
-    //document.querySelector('#select-category').innerHTML += htmlTemplate;
+
   } 
 
   appendTags() {
@@ -90,17 +93,17 @@ class MoodSelector {
       </article>
     `;
     }
-    // if no movies, display feedback to the user
+  
     if (posts.length === 0) {
       htmlTemplate = /*html*/`
         <p>No Activities</p>
       `;
     }
 
-    document.querySelector('#activities-container').innerHTML = htmlTemplate;
+   // document.querySelector('#activities-container').innerHTML = htmlTemplate;
   }
 
-
+// --------------------- Olga & someone ---------
 //using this finction for mood selection : moods = categories
 
   appendPostsByCategory(posts) {
@@ -110,25 +113,34 @@ class MoodSelector {
       <article>
       <h2>${post.title.rendered}</h2>
       <p>${post.acf.description}</p>
+      <h5 class="tag-info" id="tag-info">${post.tags}</h5>
       </article>
     `;
     }
     // if no movies, display feedback to the user
     if (posts.length === 0) {
       htmlTemplate = /*html*/`
-        <p>No Activities</p>
+        <h5>No Activities</h5><br>
+        <h5>try again ❤</h5>
       `;
     }
 
     document.querySelector('#activities-container').innerHTML = htmlTemplate;
   }
 
-  search(value) {
-    let searchValue = value.toLowerCase();
-    let filteredPosts = this.posts.filter(post => post.tagId.toLowerCase().includes(searchValue));
-    this.appendPosts(filteredPosts);
-  }
+  //changeUrl(notag) {
+   // url = `http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&categories=${categoryId}&tags=${notag}`;
+  //}
 
+//---------------- Olga -----------------------
+//this function to pick time for the activity : times = tags
+/*
+search(value) {
+  let searchValue = value.toLowerCase();
+  let filteredPosts = this.posts.filter(post => post.tags.name.toLowerCase().includes(searchValue));
+  this.getPostsByCategory(filteredPosts);
+}
+*/
 
 }
 

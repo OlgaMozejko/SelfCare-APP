@@ -11,6 +11,7 @@ import MoodSelector from "./data-selection.js";
 let moodSelector = new MoodSelector();
 moodSelector.init();
 
+
 //------------ Olga -----------
 //picking category based on the face selected by user & 
 //change of text & background color :  based on the selected mood
@@ -66,12 +67,18 @@ window.categorySelected = function (id) {
       document.querySelector("#changing-text").innerHTML += html;
       document.querySelector("#time-selection-wrapper").style.backgroundColor = "var(--anxious-purple)";
     }
-  };
+  }
 
 //---------------------------------------
+/*
+window.search = function (searchValue) {
+  moodSelector.search(searchValue);
+}*/
 
-
-
+window.tagSelected = function (value) {
+  moodSelector.changeUrl(value);
+  categorySelected();
+}
 
 
 
