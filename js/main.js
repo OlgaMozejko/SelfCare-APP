@@ -1,3 +1,5 @@
+import { navigateTo } from "./router.js";
+
 import { dailyMessage } from "./motivation.js";
 
 dailyMessage();
@@ -14,39 +16,42 @@ moodSelector.init();
 //------------ Olga -----------
 //picking category based on the face selected by user &
 //change of text & background color :  based on the selected mood
-let html = "";
+//picking tag based on tag in a drop-down selection
 
-window.categorySelected = function (id) {
-  moodSelector.getPostsByCategory(id);
-  if (id === "2") {
+let html = "";
+let _selectedCatId;
+
+function categorySelected(catId) {
+  _selectedCatId = catId;
+  if (catId === "2") {
     document.querySelector("#changing-text").innerHTML = "";
     html = "I'm so happy to see you being happy ❤";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
       "var(--happy-yellow)";
   }
-  if (id === "6") {
+  if (catId === "6") {
     document.querySelector("#changing-text").innerHTML = "";
     html = "It's ok to feel bored or indecisive sometimes.";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
       "var(--indiffrent-brown)";
   }
-  if (id === "3") {
+  if (catId === "3") {
     document.querySelector("#changing-text").innerHTML = "";
     html = "It's only natural to feel down somedays 🤗";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
       "var(--sad-blue)";
   }
-  if (id === "5") {
+  if (catId === "5") {
     document.querySelector("#changing-text").innerHTML = "";
     html = "Everyone feels unmotivated sometimes, don't worry about it.";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
       "var(--unmotivated-green)";
   }
-  if (id === "8") {
+  if (catId === "8") {
     document.querySelector("#changing-text").innerHTML = "";
     html =
       "It's normals to feel tired someimes, take deep breath, now it's time to rest.";
@@ -54,7 +59,7 @@ window.categorySelected = function (id) {
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
       "var(--tired-purple)";
   }
-  if (id === "7") {
+  if (catId === "7") {
     document.querySelector("#changing-text").innerHTML = "";
     html =
       "Everyone feels stressed sometimes, I'm proud of you acknowledging it.";
@@ -62,14 +67,14 @@ window.categorySelected = function (id) {
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
       "var(--stressed-grey)";
   }
-  if (id === "4") {
+  if (catId === "4") {
     document.querySelector("#changing-text").innerHTML = "";
     html = "It's normal to get angry or frustrated sometimes 🤗";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
       "var(--frustrated-red";
   }
-  if (id === "9") {
+  if (catId === "9") {
     document.querySelector("#changing-text").innerHTML = "";
     html =
       "It's hard to deal with anxiety and take care of yourself, I'm happy that you are doing it.";
@@ -77,17 +82,26 @@ window.categorySelected = function (id) {
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
       "var(--anxious-purple)";
   }
-};
-
-//---------------------------------------
-/*
-window.search = function (searchValue) {
-  moodSelector.search(searchValue);
-}*/
-/*
-window.tagSelected = function (value) {
-  moodSelector.changeUrl(value);
-  categorySelected();
 }
 
-*/
+function timeSelected(tagId) {
+  if (tagId === "10"){ 
+  moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
+  navigateTo("#/allActivities");}
+  if (tagId === "12"){ 
+    moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
+    navigateTo("#/allActivities");}
+  if (tagId === "11"){ 
+      moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
+      navigateTo("#/allActivities");}
+  if (tagId === "13"){ 
+        moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
+        navigateTo("#/allActivities");}
+}
+
+window.categorySelected = (catId) => categorySelected(catId);
+window.timeSelected = (tagId) => timeSelected(tagId);
+
+
+
+

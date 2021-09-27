@@ -47,6 +47,11 @@ class MoodSelector {
     this.appendPostsByTags(data);
   }
 
+  async getPostsByCatAndTag(catId, tagId) {
+    let data = await fetch(`http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&categories=${catId}&tags=${tagId}`).then(res => res.json());
+    this.appendPostsByCatAndTag(data);
+  }
+
  
 
   appendPosts(posts) {
@@ -80,7 +85,7 @@ class MoodSelector {
         <option value="${tag.id}">${tag.name}</option>
       `;
     }
-    //document.querySelector('#activities-container').innerHTML = htmlTemplate;
+    document.querySelector('#time-select').innerHTML += htmlTemplate;
   }
 
   appendPostsByTags() {
@@ -103,13 +108,39 @@ class MoodSelector {
    // document.querySelector('#activities-container').innerHTML = htmlTemplate;
   }
 
-// --------------------- Olga & someone ---------
+
+// --------------------- Olga ---------
 //using this finction for mood selection : moods = categories
+
+
+  appendPostsByCatAndTag(posts) {
+    let htmlTemplate = "";
+    for (let post of posts) {
+      htmlTemplate += `
+      <article>
+      <h2>${post.title.rendered}</h2>
+      <p>${post.acf.description}</p>
+      </article>
+    `;
+    }
+
+    if (posts.length === 0) {
+      htmlTemplate = `
+        <h5>No Activities</h5><br>
+        <h5>try again ❤</h5>
+      `;
+
+  }
+
+  document.querySelector('#activities-container').innerHTML = htmlTemplate;
+
+}
+
 
   appendPostsByCategory(posts) {
     let htmlTemplate = "";
     for (let post of posts) {
-      htmlTemplate += /*html*/ `
+      htmlTemplate += `
       <article>
       <h2>${post.title.rendered}</h2>
       <p>${post.acf.description}</p>
@@ -117,30 +148,17 @@ class MoodSelector {
       </article>
     `;
     }
-    // if no movies, display feedback to the user
     if (posts.length === 0) {
-      htmlTemplate = /*html*/`
+      htmlTemplate = `
         <h5>No Activities</h5><br>
         <h5>try again ❤</h5>
       `;
     }
 
-    document.querySelector('#activities-container').innerHTML = htmlTemplate;
+    //document.querySelector('#activities-container').innerHTML = htmlTemplate;
   }
 
-  //changeUrl(notag) {
-   // url = `http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&categories=${categoryId}&tags=${notag}`;
-  //}
 
-//---------------- Olga -----------------------
-//this function to pick time for the activity : times = tags
-/*
-search(value) {
-  let searchValue = value.toLowerCase();
-  let filteredPosts = this.posts.filter(post => post.tags.name.toLowerCase().includes(searchValue));
-  this.getPostsByCategory(filteredPosts);
-}
-*/
 
 }
 

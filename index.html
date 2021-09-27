@@ -147,12 +147,8 @@
           <h5 class="home-text1">Filter results for a better experience ❤</h5>
         </div>
         <div class="time-select-container">
-          <select id="time-select" class="time-select" onchange="navigateTo(this.value);">
-            <option value="#/timeSelection" selected>🕒 Select the time</option>
-            <option value="#/allActivities" value="5">🕒 5 min</option>
-            <option value="#/allActivities" value="10">🕒 10 min</option>
-            <option value="#/allActivities" value="20">🕒 20 min</option>
-            <option value="#/allActivities" value="30+">🕒 30+ min</option>
+          <select id="time-select" class="time-select" onchange="timeSelected(this.value);">
+            <option selected>🕒 Select the time</option>
           </select></div>
       </section>
     </section>
@@ -163,7 +159,7 @@
 
   <section id="allActivities" class="page">
     <header class="topbar">
-      <a href="#/" class="nav-link left">
+      <a href="#/timeSelection" class="nav-link left">
         <svg xmlns="http://www.w3.org/2000/svg" width="25.075" height="24.44" viewBox="0 0 25.075 24.44">
           <defs>
             <style>
@@ -246,8 +242,7 @@
     </header>
   </section>
 
-  <!-- Router functionality  -->
-  <script src="js/router.js"></script>
+
   <!-- main js file -->
   <script src="js/main.js" type="module"></script>
 </body>
