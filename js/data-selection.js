@@ -8,12 +8,18 @@ class MoodSelector {
     this.posts = [];
     this.categories = [];
     this.tags = [];
+    this._baseUrl = "https://api.jsonbin.io/v3/b/61521f789548541c29b9949d";
+    this._headers = {
+      "X-Master-Key": "$2b$10$Uf1lbMtIPrrWeneN3Wz6JuDcyBuOz.1LbHiUg32QexCCJz3nOpoS2",
+      "Content-Type": "application/json"
+    };
   }
 
   init() {
     this.getPosts();
     this.getCategories();
     this.getTags();
+    this.loadJson();
   }
 
   async getPosts() {
@@ -60,6 +66,56 @@ class MoodSelector {
     this.appendPostsByCatAndTag(data);
   }
 
+  // Fetching the JSON bin, pushing objects to json bin, updating it - Marius
+
+  async loadJson() {
+    const url = this._baseUrl + "/latest";
+    const response = await fetch(url, {
+      headers: this._headers
+    });
+    const data = await response.json();
+    this.posts = data.record;
+    this.appendFavorites(this.posts);
+  }
+
+  async pushPost() {
+    const newPost = {
+      title: this.title.rendered,
+      description: this.acf.description,
+      environment: this.acf.environment
+    };
+    this.posts.push(newPost);
+    await updateJSONBIN(this.posts);
+  }
+
+  async updateJSONBIN(users) {
+
+    const response = await fetch(this._baseUrl, {
+      method: "PUT",
+      headers: this._headers,
+      body: JSON.stringify(users)
+    });
+    const result = await response.json();
+    console.log(result);
+    this.appendFavorites(result.record);
+  }
+
+  appendFavorites(posts) {
+    let htmlTemplate = "";
+    for (let post of posts) {
+      htmlTemplate += `
+        <article>
+            <h2>${post.title}</h2>
+            <p>${post.description}</p>
+            <p>${post.environment}</p>
+        </article>
+    `;
+    }
+    document.querySelector('#section-favorites').innerHTML = htmlTemplate;
+  }
+
+
+
   appendPosts(posts) {
     let htmlTemplate = "";
     for (let post of posts) {
@@ -72,7 +128,7 @@ class MoodSelector {
         </article>
     `;
     }
-    document.querySelector("#section-favorites").innerHTML = htmlTemplate;
+    //document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
 
   appendCategories() {
@@ -170,62 +226,64 @@ class MoodSelector {
       `;
     }
 
-    document.querySelector("#section-favorites").innerHTML = htmlTemplate;
+    //document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
-
-  // filter by emotions function - Marius
-  filterByEmotions(value) {
-    const buttons = document.querySelectorAll(
-      ".filter-container .filterByEmotions"
-    );
-    for (const button of buttons)
-      if (value === button.getAttribute("id")) {
-        button.classList.add("selected");
+  /*
+    // filter by emotions function - Marius
+    filterByEmotions(value) {
+      const buttons = document.querySelectorAll(
+        ".filter-container .filterByEmotions"
+      );
+      for (const button of buttons)
+        if (value === button.getAttribute("id")) {
+          button.classList.add("selected");
+        } else {
+          button.classList.remove("selected");
+        }
+      /*if (value == "all") {
+        this.getPosts();
       } else {
-        button.classList.remove("selected");
+        const results = this.categories.filter(post => post.categories[id] == value);
+        this.getPostsByCategory(results);
       }
-    /*if (value == "all") {
-      this.getPosts();
-    } else {
-      const results = this.categories.filter(post => post.categories[id] == value);
-      this.getPostsByCategory(results);
-    }*/
-  }
-
-  // order function - Marius
-  orderBy(option) {
-    if (option === "environment") {
-      orderByEnvironment();
-    } else if (option === "latest") {
-      orderByLatest();
-    } else if (option === "oldest") {
-      orderByOldest();
     }
-  }
 
-  // order by environment of the activity function - Marius
-  orderByEnvironment() {
-    this.posts.sort((activity1, activity2) => {
-      return activity1.acf.environment.localeCompare(activity2.acf.environment);
-    });
-    this.appendPosts(this.posts);
-  }
+    // order function - Marius
+    orderBy(option) {
+      if (option === "environment") {
+        orderByEnvironment();
+      } else if (option === "latest") {
+        orderByLatest();
+      } else if (option === "oldest") {
+        orderByOldest();
+      }
+    }
 
-  // order by latest activities function - Marius
-  orderByLatest() {
-    this.posts.sort((activity1, activity2) => {
-      return activity2.date.localeCompare(activity1.date);
-    });
-    this.appendPosts(this.posts);
-  }
+    // order by environment of the activity function - Marius
+    orderByEnvironment() {
+      this.posts.sort((activity1, activity2) => {
+        return activity1.acf.environment.localeCompare(activity2.acf.environment);
+      });
+      this.appendPosts(this.posts);
+    }
 
-  // order by oldest activities function - Marius
-  orderByOldest() {
-    this.posts.sort((activity1, activity2) => {
-      return activity1.date.localeCompare(activity2.date);
-    });
-    this.appendPosts(this.posts);
-  }
+    // order by latest activities function - Marius
+    orderByLatest() {
+      this.posts.sort((activity1, activity2) => {
+        return activity2.date.localeCompare(activity1.date);
+      });
+      this.appendPosts(this.posts);
+    }
+
+    // order by oldest activities function - Marius
+    orderByOldest() {
+      this.posts.sort((activity1, activity2) => {
+        return activity1.date.localeCompare(activity2.date);
+      });
+      this.appendPosts(this.posts);
+    }
+
+    */
 }
 
 export default MoodSelector;
