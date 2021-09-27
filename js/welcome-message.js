@@ -1,19 +1,19 @@
 // -------------- Olga ------------------
 
-//vip need input name... 
+//vip need input name...
 //so meantime simple message print out
 
 let hr = new Date().getHours();
 let hi = "";
 
 if (hr > 1 && hr < 12) {
-      hi = "Good Morning";  
-    }
-if (hr > 12 && hr < 17) {
-    hi = "Good Day";
+  hi = "Good Morning";
 }
-else {
-    hi = "Good Evening";
+if (hr > 12 && hr < 17) {
+  hi = "Good Day";
+}
+if (hr > 17 && hr < 1) {
+  hi = "Good Evening";
 }
 
 let messageHtml = `
@@ -22,8 +22,5 @@ let messageHtml = `
 `;
 
 export function welcomeMessage() {
-    document.querySelector("#welcoming-message").innerHTML += messageHtml;
-};
-
-
-
+  document.querySelector("#welcoming-message").innerHTML += messageHtml;
+}
