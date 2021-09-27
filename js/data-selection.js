@@ -10,8 +10,9 @@ class MoodSelector {
     this.tags = [];
     this._baseUrl = "https://api.jsonbin.io/v3/b/61521f789548541c29b9949d";
     this._headers = {
-      "X-Master-Key": "$2b$10$Uf1lbMtIPrrWeneN3Wz6JuDcyBuOz.1LbHiUg32QexCCJz3nOpoS2",
-      "Content-Type": "application/json"
+      "X-Master-Key":
+        "$2b$10$Uf1lbMtIPrrWeneN3Wz6JuDcyBuOz.1LbHiUg32QexCCJz3nOpoS2",
+      "Content-Type": "application/json",
     };
   }
 
@@ -71,7 +72,7 @@ class MoodSelector {
   async loadJson() {
     const url = this._baseUrl + "/latest";
     const response = await fetch(url, {
-      headers: this._headers
+      headers: this._headers,
     });
     const data = await response.json();
     this.posts = data.record;
@@ -82,18 +83,17 @@ class MoodSelector {
     const newPost = {
       title: this.title.rendered,
       description: this.acf.description,
-      environment: this.acf.environment
+      environment: this.acf.environment,
     };
     this.posts.push(newPost);
     await updateJSONBIN(this.posts);
   }
 
   async updateJSONBIN(users) {
-
     const response = await fetch(this._baseUrl, {
       method: "PUT",
       headers: this._headers,
-      body: JSON.stringify(users)
+      body: JSON.stringify(users),
     });
     const result = await response.json();
     console.log(result);
@@ -111,10 +111,8 @@ class MoodSelector {
         </article>
     `;
     }
-    document.querySelector('#section-favorites').innerHTML = htmlTemplate;
+    document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
-
-
 
   appendPosts(posts) {
     let htmlTemplate = "";
@@ -228,6 +226,23 @@ class MoodSelector {
 
     //document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
+
+  //----------Vlada-------
+  //----filtering by environment on activities tab
+  /*
+  filterByEnvironment(type) {
+    if (type === "all") {
+      this.appendPostsByCatAndTag(this.posts);
+    } else {
+      const results = this.posts.filter(
+        (post) => post.acf.environment === type
+      );
+      this.appendPostsByCatAndTag(results);
+    }
+  }
+
+  */
+
   /*
     // filter by emotions function - Marius
     filterByEmotions(value) {
