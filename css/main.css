@@ -570,10 +570,30 @@ input:checked+.slider:before {
 .changing-text {
   font-weight: 700;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 10px;
   padding-right: 60px;
   padding-left: 60px;
   padding-bottom: 80px;
+}
+
+.mysteryBob {
+  width: 30%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.blueboi {
+  width: 80%;
+}
+
+.sleepyboi {
+  width: 180%;
+}
+
+.purpleboi {
+  width: 140%;
 }
 
 .time-white-wrapper {
