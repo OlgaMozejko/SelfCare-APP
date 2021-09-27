@@ -52,7 +52,7 @@ class MoodSelector {
     this.appendPostsByCatAndTag(data);
   }
 
- 
+
 
   appendPosts(posts) {
     let htmlTemplate = "";
@@ -61,22 +61,25 @@ class MoodSelector {
         <article>
             <h2>${post.title.rendered}</h2>
             <p>${post.acf.description}</p>
+            <p>${post.acf.environment}</p>
+            <p>${post.date}</p>
         </article>
     `;
     }
-    //document.querySelector('#activities-container').innerHTML = htmlTemplate;
+    document.querySelector('#section-favorites').innerHTML = htmlTemplate;
   }
 
   appendCategories() {
-    let htmlTemplate = "";
+    let html = "";
     for (let category of this.categories) {
-      htmlTemplate += `
-        <option value="${category.id}">${category.name}</option>
+      html += `
+      <button id="${category.id}" value="${category.id}" class="filterByEmotions" onclick="filterbyEmotions(this.value)">${category.name}</button>
       `;
     }
+    document.querySelector(".filter-container").innerHTML += html;
 
 
-  } 
+  }
 
   appendTags() {
     let htmlTemplate = "";
@@ -98,19 +101,19 @@ class MoodSelector {
       </article>
     `;
     }
-  
+
     if (posts.length === 0) {
-      htmlTemplate = /*html*/`
+      htmlTemplate = /*html*/ `
         <p>No Activities</p>
       `;
     }
 
-   // document.querySelector('#activities-container').innerHTML = htmlTemplate;
+    // document.querySelector('#activities-container').innerHTML = htmlTemplate;
   }
 
 
-// --------------------- Olga ---------
-//using this finction for mood selection : moods = categories
+  // --------------------- Olga ---------
+  //using this finction for mood selection : moods = categories
 
 
   appendPostsByCatAndTag(posts) {
@@ -130,32 +133,87 @@ class MoodSelector {
         <h5>try again ❤</h5>
       `;
 
+    }
+
+    document.querySelector('#activities-container').innerHTML = htmlTemplate;
+
   }
-
-  document.querySelector('#activities-container').innerHTML = htmlTemplate;
-
-}
 
 
   appendPostsByCategory(posts) {
     let htmlTemplate = "";
     for (let post of posts) {
-      htmlTemplate += `
+      htmlTemplate += /*html*/ `
       <article>
       <h2>${post.title.rendered}</h2>
       <p>${post.acf.description}</p>
       <h5 class="tag-info" id="tag-info">${post.tags}</h5>
+      <p>${post.acf.environment}</p>
+            <p>${post.date}</p>
       </article>
     `;
     }
-    if (posts.length === 0) {
-      htmlTemplate = `
+    // if no movies, display feedback to the user
+    if (posts.length == 0) {
+      htmlTemplate = /*html*/ `
         <h5>No Activities</h5><br>
         <h5>try again ❤</h5>
       `;
     }
 
-    //document.querySelector('#activities-container').innerHTML = htmlTemplate;
+    document.querySelector('#section-favorites').innerHTML = htmlTemplate;
+  }
+
+  // filter by emotions function - Marius
+  filterByEmotions(value) {
+    const buttons = document.querySelectorAll(".filter-container .filterByEmotions");
+    for (const button of buttons)
+      if (value === button.getAttribute("id")) {
+        button.classList.add('selected');
+      } else {
+        button.classList.remove('selected');
+      }
+    /*if (value == "all") {
+      this.getPosts();
+    } else {
+      const results = this.categories.filter(post => post.categories[id] == value);
+      this.getPostsByCategory(results);
+    }*/
+  }
+
+  // order function - Marius
+  orderBy(option) {
+    if (option === "environment") {
+      orderByEnvironment();
+    } else if (option === "latest") {
+      orderByLatest();
+    } else if (option === "oldest") {
+      orderByOldest();
+    }
+  }
+
+  // order by environment of the activity function - Marius
+  orderByEnvironment() {
+    this.posts.sort((activity1, activity2) => {
+      return activity1.acf.environment.localeCompare(activity2.acf.environment);
+    });
+    this.appendPosts(this.posts);
+  }
+
+  // order by latest activities function - Marius
+  orderByLatest() {
+    this.posts.sort((activity1, activity2) => {
+      return activity2.date.localeCompare(activity1.date);
+    });
+    this.appendPosts(this.posts);
+  }
+
+  // order by oldest activities function - Marius
+  orderByOldest() {
+    this.posts.sort((activity1, activity2) => {
+      return activity1.date.localeCompare(activity2.date);
+    });
+    this.appendPosts(this.posts);
   }
 
 

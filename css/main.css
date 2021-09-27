@@ -37,7 +37,6 @@ a {
 
 h1 {
   font-size: 1.5em;
-  letter-spacing: 2.5em;
   font-family: urbane-rounded, sans-serif;
   font-weight: 600;
   text-transform: none;
@@ -52,7 +51,6 @@ h2 {
 
 h3 {
   font-size: 1em;
-  letter-spacing: 2.5em;
   font-family: urbane-rounded, sans-serif;
   font-weight: 500;
   text-transform: none;
@@ -60,7 +58,6 @@ h3 {
 
 h4 {
   font-size: 0.8em;
-  letter-spacing: 2em;
   font-family: urbane-rounded, sans-serif;
   font-weight: 500;
   text-transform: none;
@@ -241,6 +238,7 @@ input {
   margin: 0 auto;
 }
 
+
 .favorites-wrapper {
   background-color: var(--white);
   height: 731px;
@@ -290,7 +288,7 @@ select:focus {
   column-gap: 5px;
 }
 
-.filter-container > * {
+.filter-container>* {
   flex: 1;
 }
 
@@ -303,6 +301,7 @@ select:focus {
   border-radius: 10px;
   border: 1px solid var(--black);
   width: none;
+  max-width: 100px;
   cursor: pointer;
   margin: 0 auto;
 }
@@ -313,6 +312,162 @@ select:focus {
 }
 
 /* End of favorites tab */
+
+/* Settings tab */
+
+.settings-wrapper {
+  background-color: var(--white);
+  height: 42vh;
+  margin: 25px 0 0 0;
+  border-radius: 44px 44px 0 0;
+  overflow: hidden;
+}
+
+.settings-offer {
+  background-color: var(--peach);
+  height: 100%;
+  margin: 25px 0 0 0;
+  border-radius: 44px 44px 0 0;
+}
+
+.button-alignment {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-family: urbane-rounded,
+    sans-serif;
+  font-weight: 500;
+  padding: 0.6em 0em;
+  background-color: var(--peach-dark);
+  color: var(--white);
+  border-radius: 50px;
+  border: 0px;
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+.settings-profile {
+  width: 78%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.settings-logo {
+  width: 81px;
+  height: 81px;
+}
+
+.settings-text-container {
+  width: 78%;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 28px;
+  color: #583953;
+}
+
+.icon-button {
+  width: 18px;
+  height: 18px;
+}
+
+.settings-notifications {
+  padding-top: 20px;
+  margin: 0 auto;
+  width: 78%;
+  margin-bottom: -20px;
+}
+
+.settings-notifications-tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.language-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.english {
+  background-image: url(../img/icons/eng.svg);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.text-settings {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: var(--peach);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 61px;
+  height: 31px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--peach);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 25px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #FAF8F8;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: var(--peach-dark);
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px var(--peach-dark);
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(29px);
+  -ms-transform: translateX(29px);
+  transform: translateX(29px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 19px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 
 /* ----------- home page styling - Olga ----------*/
 
@@ -493,7 +648,7 @@ select:focus {
   gap: 1.5em;
 }
 
-.activities-container > article {
+.activities-container>article {
   text-align: center;
   padding: 0.7em 2em;
   background-color: var(--sad-blue);

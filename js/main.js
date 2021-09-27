@@ -1,10 +1,16 @@
-import { navigateTo } from "./router.js";
+import {
+  navigateTo
+} from "./router.js";
 
-import { dailyMessage } from "./motivation.js";
+import {
+  dailyMessage
+} from "./motivation.js";
 
 dailyMessage();
 
-import { welcomeMessage } from "./welcome-message.js";
+import {
+  welcomeMessage
+} from "./welcome-message.js";
 
 welcomeMessage();
 
@@ -20,6 +26,25 @@ moodSelector.init();
 
 let html = "";
 let _selectedCatId;
+
+window.filterbyEmotions = function (value) {
+  moodSelector.filterByEmotions(value);
+  moodSelector.getPostsByCategory(value);
+}
+
+window.orderBy = function (value) {
+  moodSelector.orderBy(value);
+}
+
+window.orderByEnvironment = function () {
+  moodSelector.orderByEnvironment();
+}
+window.orderByLatest = function () {
+  moodSelector.orderByLatest();
+}
+window.orderByOldest = function () {
+  moodSelector.orderByOldest();
+}
 
 function categorySelected(catId) {
   _selectedCatId = catId;
@@ -85,23 +110,23 @@ function categorySelected(catId) {
 }
 
 function timeSelected(tagId) {
-  if (tagId === "10"){ 
-  moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
-  navigateTo("#/allActivities");}
-  if (tagId === "12"){ 
+  if (tagId === "10") {
     moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
-    navigateTo("#/allActivities");}
-  if (tagId === "11"){ 
-      moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
-      navigateTo("#/allActivities");}
-  if (tagId === "13"){ 
-        moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
-        navigateTo("#/allActivities");}
+    navigateTo("#/allActivities");
+  }
+  if (tagId === "12") {
+    moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
+    navigateTo("#/allActivities");
+  }
+  if (tagId === "11") {
+    moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
+    navigateTo("#/allActivities");
+  }
+  if (tagId === "13") {
+    moodSelector.getPostsByCatAndTag(_selectedCatId, tagId);
+    navigateTo("#/allActivities");
+  }
 }
 
 window.categorySelected = (catId) => categorySelected(catId);
 window.timeSelected = (tagId) => timeSelected(tagId);
-
-
-
-
