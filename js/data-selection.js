@@ -10,8 +10,7 @@ class MoodSelector {
     this.tags = [];
     this._baseUrl = "https://api.jsonbin.io/v3/b/61521f789548541c29b9949d";
     this._headers = {
-      "X-Master-Key":
-        "$2b$10$Uf1lbMtIPrrWeneN3Wz6JuDcyBuOz.1LbHiUg32QexCCJz3nOpoS2",
+      "X-Master-Key": "$2b$10$Uf1lbMtIPrrWeneN3Wz6JuDcyBuOz.1LbHiUg32QexCCJz3nOpoS2",
       "Content-Type": "application/json",
     };
   }
@@ -119,14 +118,22 @@ class MoodSelector {
     for (let post of posts) {
       htmlTemplate += `
         <article>
-            <h2>${post.title.rendered}</h2>
-            <p>${post.acf.description}</p>
-            <p>${post.acf.environment}</p>
-            <p>${post.date}</p>
-        </article>
+         <h2>${post.title.rendered}</h2>
+         <p>${post.acf.description}</p>
+         <div>
+         <p>${post.acf.environment}</p>
+         <a id = "fav-button" onclick = "pushPost()" >
+         <svg xmlns="http://www.w3.org/2000/svg" width="15.969" height="14.184" viewBox="0 0 15.969 14.184">
+         <g id="Icon_feather-heart" data-name="Icon feather-heart" transform="translate(1 1)">
+         <path id="Icon_feather-heart-2" data-name="Icon feather-heart" d="M15.215,5.574a3.675,3.675,0,0,0-5.2,0l-.708.708L8.6,5.574a3.676,3.676,0,1,0-5.2,5.2l.708.708,5.2,5.2,5.2-5.2.708-.708a3.675,3.675,0,0,0,0-5.2Z" transform="translate(-2.323 -4.497)" fill="none" stroke="#583953" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+         </g>
+         </svg>
+         </a>
+         </div>
+         </article>
     `;
     }
-    //document.querySelector("#section-favorites").innerHTML = htmlTemplate;
+    document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
 
   appendCategories() {
@@ -181,7 +188,8 @@ class MoodSelector {
       <p>${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
-      <a id="fav-button" onclick="DoSomething()">
+      <a id = "fav-button"
+      onclick = "pushPost()" >
       <svg xmlns="http://www.w3.org/2000/svg" width="15.969" height="14.184" viewBox="0 0 15.969 14.184">
   <g id="Icon_feather-heart" data-name="Icon feather-heart" transform="translate(1 1)">
     <path id="Icon_feather-heart-2" data-name="Icon feather-heart" d="M15.215,5.574a3.675,3.675,0,0,0-5.2,0l-.708.708L8.6,5.574a3.676,3.676,0,1,0-5.2,5.2l.708.708,5.2,5.2,5.2-5.2.708-.708a3.675,3.675,0,0,0,0-5.2Z" transform="translate(-2.323 -4.497)" fill="none" stroke="#583953" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
@@ -210,9 +218,17 @@ class MoodSelector {
       <article>
       <h2>${post.title.rendered}</h2>
       <p>${post.acf.description}</p>
-      <h5 class="tag-info" id="tag-info">${post.tags}</h5>
+      <div>
       <p>${post.acf.environment}</p>
-            <p>${post.date}</p>
+      <a id = "fav-button"
+      onclick = "pushPost()" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="15.969" height="14.184" viewBox="0 0 15.969 14.184">
+      <g id="Icon_feather-heart" data-name="Icon feather-heart" transform="translate(1 1)">
+      <path id="Icon_feather-heart-2" data-name="Icon feather-heart" d="M15.215,5.574a3.675,3.675,0,0,0-5.2,0l-.708.708L8.6,5.574a3.676,3.676,0,1,0-5.2,5.2l.708.708,5.2,5.2,5.2-5.2.708-.708a3.675,3.675,0,0,0,0-5.2Z" transform="translate(-2.323 -4.497)" fill="none" stroke="#583953" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      </svg>
+      </a>
+      </div>
       </article>
     `;
     }
@@ -224,81 +240,64 @@ class MoodSelector {
       `;
     }
 
-    //document.querySelector("#section-favorites").innerHTML = htmlTemplate;
+    document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
 
-  //----------Vlada-------
-  //----filtering by environment on activities tab
-  /*
-  filterByEnvironment(type) {
-    if (type === "all") {
-      this.appendPostsByCatAndTag(this.posts);
-    } else {
-      const results = this.posts.filter(
-        (post) => post.acf.environment === type
-      );
-      this.appendPostsByCatAndTag(results);
-    }
-  }
-
-  */
-
-  /*
-    // filter by emotions function - Marius
-    filterByEmotions(value) {
-      const buttons = document.querySelectorAll(
-        ".filter-container .filterByEmotions"
-      );
-      for (const button of buttons)
-        if (value === button.getAttribute("id")) {
-          button.classList.add("selected");
-        } else {
-          button.classList.remove("selected");
-        }
-      /*if (value == "all") {
-        this.getPosts();
+  // filter by emotions function - Marius
+  filterByEmotions(value) {
+    const buttons = document.querySelectorAll(
+      ".filter-container .filterByEmotions"
+    );
+    for (const button of buttons)
+      if (value === button.getAttribute("id")) {
+        button.classList.add("selected");
       } else {
-        const results = this.categories.filter(post => post.categories[id] == value);
-        this.getPostsByCategory(results);
+        button.classList.remove("selected");
       }
-    }
+    /*if (value == "all") {
+      this.getPosts();
+    } else {
+      const results = this.categories.filter(post => post.categories[id] == value);
+      this.getPostsByCategory(results);
+    }*/
+  }
 
-    // order function - Marius
-    orderBy(option) {
-      if (option === "environment") {
-        orderByEnvironment();
-      } else if (option === "latest") {
-        orderByLatest();
-      } else if (option === "oldest") {
-        orderByOldest();
-      }
+  // order function - Marius
+  orderBy(option) {
+    if (option === "environment") {
+      orderByEnvironment();
+    } else if (option === "latest") {
+      orderByLatest();
+    } else if (option === "oldest") {
+      orderByOldest();
     }
+  }
 
-    // order by environment of the activity function - Marius
-    orderByEnvironment() {
-      this.posts.sort((activity1, activity2) => {
-        return activity1.acf.environment.localeCompare(activity2.acf.environment);
-      });
-      this.appendPosts(this.posts);
-    }
+  // order by environment of the activity function - Marius
+  orderByEnvironment() {
+    this.posts.sort((activity1, activity2) => {
+      return activity1.acf.environment.localeCompare(activity2.acf.environment);
+    });
+    this.appendPosts(this.posts);
+  }
 
-    // order by latest activities function - Marius
-    orderByLatest() {
-      this.posts.sort((activity1, activity2) => {
-        return activity2.date.localeCompare(activity1.date);
-      });
-      this.appendPosts(this.posts);
-    }
+  // order by latest activities function - Marius
+  orderByLatest() {
+    this.posts.sort((activity1, activity2) => {
+      return activity2.date.localeCompare(activity1.date);
+    });
+    this.appendPosts(this.posts);
+  }
 
-    // order by oldest activities function - Marius
-    orderByOldest() {
-      this.posts.sort((activity1, activity2) => {
-        return activity1.date.localeCompare(activity2.date);
-      });
-      this.appendPosts(this.posts);
-    }
+  // order by oldest activities function - Marius
+  orderByOldest() {
+    this.posts.sort((activity1, activity2) => {
+      return activity1.date.localeCompare(activity2.date);
+    });
+    this.appendPosts(this.posts);
+  }
 
-    */
+
 }
 
 export default MoodSelector;

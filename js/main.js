@@ -36,6 +36,10 @@ window.orderByOldest = function () {
   moodSelector.orderByOldest();
 };
 
+window.pushPost = function () {
+  moodSelector.pushPost();
+}
+
 //------------ Olga -----------
 //picking category based on the face selected by user &
 //change of text & background color :  based on the selected mood
