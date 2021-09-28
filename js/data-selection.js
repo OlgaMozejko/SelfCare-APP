@@ -8,6 +8,7 @@ class MoodSelector {
     this.posts = [];
     this.categories = [];
     this.tags = [];
+    this.filtered = [];
     this._baseUrl = "https://api.jsonbin.io/v3/b/61521f789548541c29b9949d";
     this._headers = {
       "X-Master-Key":
@@ -21,6 +22,7 @@ class MoodSelector {
     this.getCategories();
     this.getTags();
     this.loadJson();
+    this.getPostsByCatAndTag();
   }
 
   async getPosts() {
@@ -64,6 +66,7 @@ class MoodSelector {
     let data = await fetch(
       `http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&categories=${catId}&tags=${tagId}`
     ).then((res) => res.json());
+    this.filtered = data;
     this.appendPostsByCatAndTag(data);
   }
 
