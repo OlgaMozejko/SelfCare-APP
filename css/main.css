@@ -669,7 +669,7 @@ select:focus {
 .activities-container > article {
   text-align: center;
   padding: 0.7em 2em;
-  background-color: var(--sad-blue);
+  
   transition: 0.3s;
   border-radius: 1.5em;
   color: var(--black);

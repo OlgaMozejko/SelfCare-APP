@@ -183,7 +183,6 @@ class MoodSelector {
     let htmlTemplate = "";
     for (let post of posts) {
       htmlTemplate += `
-      <article>
       <h2>${post.title.rendered}</h2>
       <p>${post.acf.description}</p>
       <div>
@@ -197,7 +196,7 @@ class MoodSelector {
 </svg>
       </a>
       </div>
-      </article>
+
     `;
     }
 
