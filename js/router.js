@@ -8,7 +8,7 @@ const routes = {
   "#/settings": "settings",
   "#/timeSelection": "timeSelection",
   "#/allActivities": "allActivities",
-  "#detailedView": "detailedView",
+  "#/detailedView": "detailedView",
 };
 
 /**
