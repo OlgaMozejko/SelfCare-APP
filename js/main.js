@@ -1,16 +1,10 @@
-import {
-  navigateTo
-} from "./router.js";
+import { navigateTo } from "./router.js";
 
-import {
-  dailyMessage
-} from "./motivation.js";
+import { dailyMessage } from "./motivation.js";
 
 dailyMessage();
 
-import {
-  welcomeMessage
-} from "./welcome-message.js";
+import { welcomeMessage } from "./welcome-message.js";
 
 welcomeMessage();
 
@@ -44,7 +38,7 @@ window.orderByOldest = function () {
 
 window.pushPost = function () {
   moodSelector.pushPost();
-}
+};
 
 //------------ Olga -----------
 //picking category based on the face selected by user &
@@ -71,7 +65,6 @@ function categorySelected(catId) {
 
     document.querySelector("#activities-container").style.backgroundColor =
       "var(--happy-yellow)";
-
   }
   if (catId === "6") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -85,7 +78,6 @@ function categorySelected(catId) {
 
     document.querySelector("#activities-container").style.backgroundColor =
       "var(--indiffrent-brown)";
-
   }
   if (catId === "3") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -99,7 +91,6 @@ function categorySelected(catId) {
 
     document.querySelector("#activities-container").style.backgroundColor =
       "var(--sad-blue)";
-
   }
   if (catId === "5") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -113,7 +104,6 @@ function categorySelected(catId) {
 
     document.querySelector("#activities-container").style.backgroundColor =
       "var(--unmotivated-green)";
-
   }
   if (catId === "8") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -128,7 +118,6 @@ function categorySelected(catId) {
 
     document.querySelector("#activities-container").style.backgroundColor =
       "var(--tired-purple)";
-
   }
   if (catId === "7") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -143,7 +132,6 @@ function categorySelected(catId) {
 
     document.querySelector("#activities-container").style.backgroundColor =
       "var(--stressed-grey)";
-
   }
   if (catId === "4") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -157,7 +145,6 @@ function categorySelected(catId) {
 
     document.querySelector("#activities-container").style.backgroundColor =
       "var(--frustrated-red)";
-
   }
   if (catId === "9") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -172,7 +159,6 @@ function categorySelected(catId) {
 
     document.querySelector("#activities-container").style.backgroundColor =
       "var(--anxious-purple)";
-
   }
 }
 
@@ -185,7 +171,7 @@ function timeSelected(tagId) {
 
 window.categorySelected = (catId) => categorySelected(catId);
 window.timeSelected = (tagId) => timeSelected(tagId);
-//window.filterByEnvironment = (value) => moodSelector.filterByEnvironment(value);
+window.filterByEnvironment = (value) => moodSelector.filterByEnvironment(value);
 
 /*window.save_data = function () {
   if (typeof (Storage) !== "undefined") {
@@ -203,41 +189,42 @@ window.timeSelected = (tagId) => timeSelected(tagId);
   }
 }*/
 
-
 // Saves the input value = name, to the Local Storage - Marius
 
 window.save_name = function () {
-  var saveUser = document.querySelector('#save-name');
-  var userName = document.querySelector('#username');
-  var savedName = document.querySelector('#user-name');
+  var saveUser = document.querySelector("#save-name");
+  var userName = document.querySelector("#username");
+  var savedName = document.querySelector("#user-name");
 
-  saveUser.addEventListener('submit', function (event) {
+  saveUser.addEventListener(
+    "submit",
+    function (event) {
+      // Don't submit the form
+      event.preventDefault();
 
-    // Don't submit the form
-    event.preventDefault();
+      // Ignore it if the wishlist item is empty
+      if (userName.value.length < 1) return;
 
-    // Ignore it if the wishlist item is empty
-    if (userName.value.length < 1) return;
+      // Add item to wishlist
+      savedName.innerHTML = userName.value;
 
-    // Add item to wishlist
-    savedName.innerHTML = userName.value;
+      // Clear input
+      userName.value = "";
 
-    // Clear input
-    userName.value = '';
-
-    // Save the list to localStorage
-    localStorage.setItem('savedName', savedName.innerHTML);
-
-  }, false);
+      // Save the list to localStorage
+      localStorage.setItem("savedName", savedName.innerHTML);
+    },
+    false
+  );
 
   // Check for saved wishlist items
-  var saved = localStorage.getItem('savedName');
+  var saved = localStorage.getItem("savedName");
 
   // If there are any saved items, update our list
   if (saved) {
     savedName.innerHTML = saved;
   }
-}
+};
 
 save_name();
 
@@ -251,7 +238,7 @@ window.showEditName = function () {
     window.saveButton = function () {
       form.style.display = "none";
       edit.style.display = "flex";
-    }
+    };
     saveButton();
   }
-}
+};

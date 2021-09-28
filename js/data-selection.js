@@ -10,7 +10,8 @@ class MoodSelector {
     this.tags = [];
     this._baseUrl = "https://api.jsonbin.io/v3/b/61521f789548541c29b9949d";
     this._headers = {
-      "X-Master-Key": "$2b$10$Uf1lbMtIPrrWeneN3Wz6JuDcyBuOz.1LbHiUg32QexCCJz3nOpoS2",
+      "X-Master-Key":
+        "$2b$10$Uf1lbMtIPrrWeneN3Wz6JuDcyBuOz.1LbHiUg32QexCCJz3nOpoS2",
       "Content-Type": "application/json",
     };
   }
@@ -242,6 +243,18 @@ class MoodSelector {
     document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
 
+  //filter by environment function for activity tab - Vlada
+  filterByEnvironment(environment) {
+    if (environment === "all") {
+      this.appendPosts(this.posts);
+    } else {
+      const results = this.posts.filter(
+        (post) => post.acf.environment === environment
+      );
+      this.appendPosts(results);
+    }
+  }
+
   // filter by emotions function - Marius
   filterByEmotions(value) {
     const buttons = document.querySelectorAll(
@@ -295,8 +308,6 @@ class MoodSelector {
     });
     this.appendPosts(this.posts);
   }
-
-
 }
 
 export default MoodSelector;
