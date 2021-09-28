@@ -1,10 +1,16 @@
-import { navigateTo } from "./router.js";
+import {
+  navigateTo
+} from "./router.js";
 
-import { dailyMessage } from "./motivation.js";
+import {
+  dailyMessage
+} from "./motivation.js";
 
 dailyMessage();
 
-import { welcomeMessage } from "./welcome-message.js";
+import {
+  welcomeMessage
+} from "./welcome-message.js";
 
 welcomeMessage();
 
@@ -64,7 +70,7 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = bob;
 
     document.querySelector("#activities-container").style.backgroundColor =
-    "var(--happy-yellow)";
+      "var(--happy-yellow)";
 
   }
   if (catId === "6") {
@@ -78,7 +84,7 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = bob;
 
     document.querySelector("#activities-container").style.backgroundColor =
-    "var(--indiffrent-brown)";
+      "var(--indiffrent-brown)";
 
   }
   if (catId === "3") {
@@ -92,7 +98,7 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = bob;
 
     document.querySelector("#activities-container").style.backgroundColor =
-    "var(--sad-blue)";
+      "var(--sad-blue)";
 
   }
   if (catId === "5") {
@@ -106,7 +112,7 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = bob;
 
     document.querySelector("#activities-container").style.backgroundColor =
-    "var(--unmotivated-green)";
+      "var(--unmotivated-green)";
 
   }
   if (catId === "8") {
@@ -121,7 +127,7 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = bob;
 
     document.querySelector("#activities-container").style.backgroundColor =
-    "var(--tired-purple)";
+      "var(--tired-purple)";
 
   }
   if (catId === "7") {
@@ -136,7 +142,7 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = bob;
 
     document.querySelector("#activities-container").style.backgroundColor =
-    "var(--stressed-grey)";
+      "var(--stressed-grey)";
 
   }
   if (catId === "4") {
@@ -150,7 +156,7 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = bob;
 
     document.querySelector("#activities-container").style.backgroundColor =
-    "var(--frustrated-red)";
+      "var(--frustrated-red)";
 
   }
   if (catId === "9") {
@@ -165,7 +171,7 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = bob;
 
     document.querySelector("#activities-container").style.backgroundColor =
-    "var(--anxious-purple)";
+      "var(--anxious-purple)";
 
   }
 }
@@ -180,3 +186,72 @@ function timeSelected(tagId) {
 window.categorySelected = (catId) => categorySelected(catId);
 window.timeSelected = (tagId) => timeSelected(tagId);
 //window.filterByEnvironment = (value) => moodSelector.filterByEnvironment(value);
+
+/*window.save_data = function () {
+  if (typeof (Storage) !== "undefined") {
+    let input = document.getElementById('inputName').value;
+    localStorage.setItem('name', input);
+    document.getElementById('inputName').value = localStorage.getItem('name');
+    let storedValue = localStorage.getItem("name");
+    document.querySelector("#user-name").innerHTML = storedValue;
+    console.log(storedValue);
+    navigateTo("#/settings");
+    input = '';
+    return storedValue;
+  } else {
+    alert("Sorry! No Web Storage support..")
+  }
+}*/
+
+
+// Saves the input value = name, to the Local Storage - Marius
+
+window.save_name = function () {
+  var saveUser = document.querySelector('#save-name');
+  var userName = document.querySelector('#username');
+  var savedName = document.querySelector('#user-name');
+
+  saveUser.addEventListener('submit', function (event) {
+
+    // Don't submit the form
+    event.preventDefault();
+
+    // Ignore it if the wishlist item is empty
+    if (userName.value.length < 1) return;
+
+    // Add item to wishlist
+    savedName.innerHTML = userName.value;
+
+    // Clear input
+    userName.value = '';
+
+    // Save the list to localStorage
+    localStorage.setItem('savedName', savedName.innerHTML);
+
+  }, false);
+
+  // Check for saved wishlist items
+  var saved = localStorage.getItem('savedName');
+
+  // If there are any saved items, update our list
+  if (saved) {
+    savedName.innerHTML = saved;
+  }
+}
+
+save_name();
+
+window.showEditName = function () {
+  let edit = document.querySelector("#edit-name");
+  let form = document.querySelector("#save-name");
+  if (form.style.display == "none") {
+    form.style.display = "block";
+    edit.style.display = "none";
+  } else {
+    window.saveButton = function () {
+      form.style.display = "none";
+      edit.style.display = "flex";
+    }
+    saveButton();
+  }
+}

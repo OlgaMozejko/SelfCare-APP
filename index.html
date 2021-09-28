@@ -185,7 +185,9 @@
         <option value="indoor">Indoors</option>
         <option value="outdoor">Outdoors</option>
       </select>
-      <div class="activities-container"><article id="activities-container"></article></div>
+      <div class="activities-container">
+        <article id="activities-container"></article>
+      </div>
 
     </section>
 
@@ -271,11 +273,17 @@
 
     <div class="settings-profile">
       <img class="settings-logo" alt="logo" src="./img/logo/logo.svg">
-      <h3>Hey, <b>Bob</b></h3>
-      <a href="">
-        <button class="button-alignment">Edit Nickname&nbsp;&nbsp;&nbsp;<img
-            src="./img/icons/Icon awesome-arrow-right.svg" class="icon-button"></button>
-      </a>
+      <h3>Hey, <b id="user-name">Stranger</b></h3>
+
+      <button onclick="showEditName()" id="edit-name">Edit Nickname&nbsp;&nbsp;&nbsp;<img
+          src="./img/icons/Icon awesome-arrow-right.svg" class="icon-button"></button>
+
+      <!-- <input type='text' name="name" id="inputName" />
+      <button onclick="save_data()" type="button">Save</button> -->
+      <form id="save-name">
+        <input type="text" name="username" id="username" placeholder="How should we call you?">
+        <button class="btn" type="submit" onclick="saveButton()">Save</button>
+      </form>
     </div>
     <section class="settings-offer">
       <div class="settings-text-container">
