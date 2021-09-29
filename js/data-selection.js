@@ -327,7 +327,6 @@ class MoodSelector {
       btnTemplate = `
       <button onclick="removeFromFavourites('${postId}')" class="rm">Remove from favourites</button>`;
     }
-    console.log(postId);
     console.log(btnTemplate);
     return btnTemplate;
   }

@@ -23,6 +23,7 @@ let html = "";
 let _selectedCatId;
 let bob = "";
 
+
 window.filterbyEmotions = function (value) {
   moodSelector.filterByEmotions(value);
   moodSelector.getPostsByCategory(value);
@@ -255,6 +256,43 @@ window.save_name = function () {
 };
 
 save_name();
+
+window.save_name_main = function () {
+  var saveUser = document.querySelector("#save-name2");
+  var userName = document.querySelector("#username2");
+  var savedName = document.querySelector("#user-name");
+
+  saveUser.addEventListener(
+    "submit",
+    function (event) {
+      // Don't submit the form
+      event.preventDefault();
+
+      // Ignore it if the wishlist item is empty
+      if (userName.value.length < 1) return;
+
+      // Add item to wishlist
+      savedName.innerHTML = userName.value;
+
+      // Clear input
+      userName.value = "";
+
+      // Save the list to localStorage
+      localStorage.setItem("savedName", savedName.innerHTML);
+    },
+    false
+  );
+
+  // Check for saved wishlist items
+  var saved = localStorage.getItem("savedName");
+
+  // If there are any saved items, update our list
+  if (saved) {
+    savedName.innerHTML = saved;
+  }
+};
+
+save_name_main();
 
 window.showEditName = function () {
   let edit = document.querySelector("#edit-name");
