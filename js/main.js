@@ -1,10 +1,16 @@
-import { navigateTo } from "./router.js";
+import {
+  navigateTo
+} from "./router.js";
 
-import { dailyMessage } from "./motivation.js";
+import {
+  dailyMessage
+} from "./motivation.js";
 
 dailyMessage();
 
-import { welcomeMessage } from "./welcome-message.js";
+import {
+  welcomeMessage
+} from "./welcome-message.js";
 
 welcomeMessage();
 
@@ -43,6 +49,24 @@ window.pushPost = function () {
 window.showDetailView = function (id) {
   moodSelector.showDetailView(id);
 };
+
+window.generateFavPostsButton = function (postId) {
+  moodSelector.generateFavPostsButton(postId);
+};
+
+window.addToFavourites = function (postId) {
+  moodSelector.addToFavourites(postId);
+};
+
+window.removeFromFavourites = function (postId) {
+  moodSelector.removeFromFavourites(postId);
+};
+
+window.isFavPosts = function (postId) {
+  moodSelector.isFavPosts(postId);
+};
+
+
 
 //------------ Olga -----------
 //picking category based on the face selected by user &

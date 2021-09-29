@@ -9,10 +9,10 @@ class MoodSelector {
     this.categories = [];
     this.tags = [];
     this.filtered = [];
+    this.favposts = [];
     this._baseUrl = "https://api.jsonbin.io/v3/b/61521f789548541c29b9949d";
     this._headers = {
-      "X-Master-Key":
-        "$2b$10$Uf1lbMtIPrrWeneN3Wz6JuDcyBuOz.1LbHiUg32QexCCJz3nOpoS2",
+      "X-Master-Key": "$2b$10$Uf1lbMtIPrrWeneN3Wz6JuDcyBuOz.1LbHiUg32QexCCJz3nOpoS2",
       "Content-Type": "application/json",
     };
   }
@@ -21,7 +21,6 @@ class MoodSelector {
     this.getPosts();
     this.getCategories();
     this.getTags();
-    this.loadJson();
     this.getPostsByCatAndTag();
   }
 
@@ -70,52 +69,7 @@ class MoodSelector {
     this.appendPostsByCatAndTag(data);
   }
 
-  // Fetching the JSON bin, pushing objects to json bin, updating it - Marius
 
-  async loadJson() {
-    const url = this._baseUrl + "/latest";
-    const response = await fetch(url, {
-      headers: this._headers,
-    });
-    const data = await response.json();
-    this.posts = data.record;
-    this.appendFavorites(this.posts);
-  }
-
-  async pushPost() {
-    const newPost = {
-      title: this.title.rendered,
-      description: this.acf.description,
-      environment: this.acf.environment,
-    };
-    this.posts.push(newPost);
-    await updateJSONBIN(this.posts);
-  }
-
-  async updateJSONBIN(users) {
-    const response = await fetch(this._baseUrl, {
-      method: "PUT",
-      headers: this._headers,
-      body: JSON.stringify(users),
-    });
-    const result = await response.json();
-    console.log(result);
-    this.appendFavorites(result.record);
-  }
-
-  appendFavorites(posts) {
-    let htmlTemplate = "";
-    for (let post of posts) {
-      htmlTemplate += `
-        <article>
-            <h2>${post.title}</h2>
-            <p>${post.description}</p>
-            <p>${post.environment}</p>
-        </article>
-    `;
-    }
-    document.querySelector("#section-favorites").innerHTML = htmlTemplate;
-  }
 
   appendPosts(posts) {
     let htmlTemplate = "";
@@ -137,7 +91,7 @@ class MoodSelector {
          </article>
     `;
     }
-    document.querySelector("#section-favorites").innerHTML = htmlTemplate;
+    //document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
 
   appendCategories() {
@@ -192,17 +146,9 @@ class MoodSelector {
       <p>${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
-      <a id = "fav-button"
-      onclick = "pushPost()" >
-      <svg xmlns="http://www.w3.org/2000/svg" width="15.969" height="14.184" viewBox="0 0 15.969 14.184">
-  <g id="Icon_feather-heart" data-name="Icon feather-heart" transform="translate(1 1)">
-    <path id="Icon_feather-heart-2" data-name="Icon feather-heart" d="M15.215,5.574a3.675,3.675,0,0,0-5.2,0l-.708.708L8.6,5.574a3.676,3.676,0,1,0-5.2,5.2l.708.708,5.2,5.2,5.2-5.2.708-.708a3.675,3.675,0,0,0,0-5.2Z" transform="translate(-2.323 -4.497)" fill="none" stroke="#583953" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-  </g>
-</svg>
-      </a>
+      ${generateFavPostsButton(post.id)}
       </div>
       </article>
-
     `;
     }
 
@@ -343,6 +289,75 @@ class MoodSelector {
     `;
     navigateTo("#/detailView");
   }
+
+  // Making favorite tab functional - Marius
+
+  //Appending fav movies to the DOM by looping through _favMovies
+
+  appendFavPosts() {
+    let html = "";
+    for (const post of this.posts) {
+      console.log(post);
+      html += /*html*/ `
+      <article onclick="showDetailView('${post.id}')">
+      <h2>${post.title.rendered}</h2>
+      <p>${post.acf.description}</p>
+      <div>
+      <p>${post.acf.environment}</p>
+      ${generateFavPostsButton(post.id)}
+      </div>
+      </article>
+    `;
+    }
+    // if no movies display a default text
+    if (this.posts.length === 0) {
+      html = "<p>No activities added to favorites</p>"
+    }
+    document.querySelector("#section-favorites").innerHTML = html;
+  }
+
+  /**
+   * Generating the fav button
+   */
+  generateFavPostsButton(postId) {
+    let btnTemplate = `
+        <button onclick="addToFavourites('${postId}')"> Add to favourites </button>
+    `;
+    if (isFavPosts(postId)) {
+      btnTemplate = `
+      <button onclick="removeFromFavourites('${postId}')" class="rm">Remove from favourites</button>`;
+    }
+    console.log(postId);
+    console.log(btnTemplate);
+    return btnTemplate;
+  }
+
+  /**
+   * Adding movie to favorites by given movieId
+   */
+  addToFavourites(postId) {
+    let favPost = this.posts.find(post => post.id === postId);
+    this.favposts.push(favPost);
+    this.appendPosts(this.posts); // update the DOM to display the right button
+    appendFavPosts(); // update the DOM to display the right items from the _favMovies list
+  }
+
+  /**
+   * Removing movie from favorites by given movieId
+   */
+  removeFromFavourites(postId) {
+    this.favposts = this.favposts.filter(post => post.id !== postId);
+    this.appendPosts(this.posts); // update the DOM to display the right button
+    appendFavPosts(); // update the DOM to display the right items from the _favMovies list
+  }
+
+  /**
+   * Checking if movie already is added to _favMovies
+   */
+  isFavPosts(postId) {
+    return this.favposts.find(post => post.id === postId); // checking if _favMovies has the movie with matching id or not
+  }
+
 }
 
 export default MoodSelector;
