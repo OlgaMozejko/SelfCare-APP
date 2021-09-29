@@ -10,17 +10,14 @@ if (hr > 1 && hr < 12) {
   hi = "Good Morning";
 }
 if (hr > 12 && hr < 17) {
-  hi = "Good Day";
+  hi = "Greetings";
 }
 if (hr > 17 && hr < 1) {
   hi = "Good Evening";
 }
 
-let messageHtml = `
-<h5 class="home-text2">${hi}</h5>
-<h5 class="home-text2">So glad to see you again 🥰</h5>
-`;
+let messageHtml = `${hi}`;
 
 export function welcomeMessage() {
-  document.querySelector("#welcoming-message").innerHTML += messageHtml;
+  document.querySelector("#welcoming").innerHTML += messageHtml;
 }

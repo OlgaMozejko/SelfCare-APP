@@ -221,9 +221,9 @@ window.timeSelected = (tagId) => timeSelected(tagId);
 // Saves the input value = name, to the Local Storage - Marius
 
 window.save_name = function () {
-  var saveUser = document.querySelector("#save-name");
-  var userName = document.querySelector("#username");
-  var savedName = document.querySelector("#user-name");
+  let saveUser = document.querySelector("#save-name");
+  let userName = document.querySelector("#username");
+  let savedName = document.querySelectorAll(".user-name");
 
   saveUser.addEventListener(
     "submit",
@@ -258,9 +258,9 @@ window.save_name = function () {
 save_name();
 
 window.save_name_main = function () {
-  var saveUser = document.querySelector("#save-name2");
-  var userName = document.querySelector("#username2");
-  var savedName = document.querySelector("#user-name");
+  let saveUser = document.querySelector("#save-name2");
+  let userName = document.querySelector("#username2");
+  let savedName = document.querySelector(".user-name");
 
   saveUser.addEventListener(
     "submit",
@@ -290,6 +290,7 @@ window.save_name_main = function () {
   if (saved) {
     savedName.innerHTML = saved;
   }
+
 };
 
 save_name_main();

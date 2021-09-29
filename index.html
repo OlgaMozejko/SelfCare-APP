@@ -92,8 +92,8 @@
             <input type="text" name="username2" id="username2" placeholder="How should we call you?">
             <div class="buttons">
               <button class="btn" type="submit" onclick="navigateTo('#/onboard1')">Ready</button>
-              <a href="#/onboard1"><button href="#/onboard1" class="btn2">Skip </button>
-              </a></div>
+              <button href="#/onboard1" class="btn2" onclick="navigateTo('#/onboard1');">Skip </button>
+            </div>
           </form>
         </div>
       </div>
@@ -132,7 +132,8 @@
 
     <div class="welcome-wrapper">
       <div class="welcome-container">
-        <h1 style="letter-spacing: normal; font-size: 30px; color:#6A5573">Hi <span style="color:#F6A580">Bob! </span>
+        <h1 style="letter-spacing: normal; font-size: 30px; color:#6A5573">Hi <span style="color:#F6A580"><b
+              class="user-name1">Stranger</b></span>!
         </h1>
         <h2 style="letter-spacing: normal; font-size: 16px; color:#6A5573">I'm Selfly - a Self-Care App.
           <br> No matter how you feel,
@@ -269,7 +270,12 @@
 
   <!-- home page - Olga -->
   <section id="home" class="page">
-    <div class="welcoming-message" id="welcoming-message"></div>
+    <div class="welcoming-message" id="welcoming-message">
+      <h5 class="home-text2">
+        <span id="welcoming"></span>, <b class="user-name2">Stranger</b>
+      </h5>
+      <h5 class="home-text2">So glad to see you again 🥰</h5>
+    </div>
     <h5 class="daily-message">
       <div id="messages">
     </h5>
@@ -480,7 +486,7 @@
 
     <div class="settings-profile">
       <img class="settings-logo" alt="logo" src="./img/logo/logo.svg">
-      <h3>Hey, <b id="user-name">Stranger</b></h3>
+      <h3>Hey, <b class="user-name">Stranger</b></h3>
 
       <button onclick="showEditName()" id="edit-name">Edit Nickname&nbsp;&nbsp;&nbsp;<img
           src="./img/icons/Icon awesome-arrow-right.svg" class="icon-button"></button>
