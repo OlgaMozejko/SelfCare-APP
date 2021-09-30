@@ -92,8 +92,6 @@ function categorySelected(catId) {
     bob = `<img src="img/happyhappyboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
 
-    /* document.querySelector("#activities-container").style.backgroundColor =
-      "var(--happy-yellow)"; */
   }
   if (catId === "6") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -105,8 +103,6 @@ function categorySelected(catId) {
     bob = `<img src="img/Indifferentboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
 
-    /* document.querySelector("#activities-container").style.backgroundColor =
-      "var(--indiffrent-brown)"; */
   }
   if (catId === "3") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -118,8 +114,7 @@ function categorySelected(catId) {
     bob = `<img src="img/sadboi.png" class="blueboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
 
-    /* document.querySelector("#activities-container").style.backgroundColor =
-      "var(--sad-blue)"; */
+
   }
   if (catId === "5") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -131,8 +126,6 @@ function categorySelected(catId) {
     bob = `<img src="img/unmotivatedboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
 
-    /* document.querySelector("#activities-container").style.backgroundColor =
-      "var(--unmotivated-green)"; */
   }
   if (catId === "8") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -145,8 +138,6 @@ function categorySelected(catId) {
     bob = `<img src="img/sleepysleepyboi.png" class="sleepyboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
 
-    /* document.querySelector("#activities-container").style.backgroundColor =
-      "var(--tired-purple)"; */
   }
   if (catId === "7") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -159,8 +150,7 @@ function categorySelected(catId) {
     bob = `<img src="img/stressedboi.png" class="blueboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
 
-    /* document.querySelector("#activities-container").style.backgroundColor =
-      "var(--stressed-grey)"; */
+ 
   }
   if (catId === "4") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -172,8 +162,6 @@ function categorySelected(catId) {
     bob = `<img src="img/angryboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
 
-    /* document.querySelector("#activities-container").style.backgroundColor =
-      "var(--frustrated-red)"; */
   }
   if (catId === "9") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -186,8 +174,6 @@ function categorySelected(catId) {
     bob = `<img src="img/anxiousboi.png" class="purpleboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
 
-    /* document.querySelector("#activities-container").style.backgroundColor =
-      "var(--anxious-purple)"; */
   }
 }
 
@@ -198,8 +184,12 @@ function timeSelected(tagId) {
   }
 }
 
+
 window.categorySelected = (catId) => categorySelected(catId);
 window.timeSelected = (tagId) => timeSelected(tagId);
+
+
+
 // window.filterByEnvironment = (value) => moodSelector.filterByEnvironment(value);
 
 /*window.save_data = function () {

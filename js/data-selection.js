@@ -166,7 +166,7 @@ class MoodSelector {
     let htmlTemplate = "";
     for (let post of posts) {
       htmlTemplate += /*html*/ `
-      <article onclick="showDetailView('${post.id}')">
+      <article onclick="showDetailView('${post.id}')" class="nav-link" id="activityBox">
       <h2>${post.title.rendered}</h2>
       <p>${post.acf.description}</p>
       <div>
