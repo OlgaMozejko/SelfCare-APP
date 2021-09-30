@@ -67,9 +67,6 @@ window.isFavPosts = function (postId) {
   moodSelector.isFavPosts(postId);
 };
 
-window.appendFavPosts = function () {
-  moodSelector.appendFavPosts();
-}
 
 
 

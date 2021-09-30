@@ -10,13 +10,7 @@ class MoodSelector {
     this.tags = [];
     this.filtered = [];
     this.favposts = [];
-    this._baseUrl = "https://api.jsonbin.io/v3/b/61521f789548541c29b9949d";
-    this._headers = {
-      "X-Master-Key": "$2b$10$Uf1lbMtIPrrWeneN3Wz6JuDcyBuOz.1LbHiUg32QexCCJz3nOpoS2",
-      "Content-Type": "application/json",
-    };
   }
-
   init() {
     this.getPosts();
     this.getCategories();
@@ -74,20 +68,14 @@ class MoodSelector {
     let htmlTemplate = "";
     for (let post of posts) {
       htmlTemplate += /*html*/ `
-        <article onclick="showDetailView('${post.id}')">
-         <h2>${post.title.rendered}</h2>
-         <p>${post.acf.description}</p>
-         <div>
-         <p>${post.acf.environment}</p>
-         <a id = "fav-button" onclick = "pushPost()" >
-         <svg xmlns="http://www.w3.org/2000/svg" width="15.969" height="14.184" viewBox="0 0 15.969 14.184">
-         <g id="Icon_feather-heart" data-name="Icon feather-heart" transform="translate(1 1)">
-         <path id="Icon_feather-heart-2" data-name="Icon feather-heart" d="M15.215,5.574a3.675,3.675,0,0,0-5.2,0l-.708.708L8.6,5.574a3.676,3.676,0,1,0-5.2,5.2l.708.708,5.2,5.2,5.2-5.2.708-.708a3.675,3.675,0,0,0,0-5.2Z" transform="translate(-2.323 -4.497)" fill="none" stroke="#583953" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-         </g>
-         </svg>
-         </a>
-         </div>
-         </article>
+         <article >
+      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
+      <div>
+      <p>${post.acf.environment}</p>
+      ${this.generateFavPostsButton(post.id)}
+      </div>
+      </article>
     `;
     }
     //document.querySelector("#section-favorites").innerHTML = htmlTemplate;
@@ -117,9 +105,13 @@ class MoodSelector {
     let htmlTemplate = "";
     for (let post of posts) {
       htmlTemplate += /*html*/ `
-      <article>
-      <h2>${post.title.rendered}</h2>
-      <p>${post.acf.description}</p>
+      <article >
+      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
+      <div>
+      <p>${post.acf.environment}</p>
+      ${this.generateFavPostsButton(post.id)}
+      </div>
       </article>
     `;
     }
@@ -141,9 +133,9 @@ class MoodSelector {
     console.log(posts);
     for (let post of posts) {
       html += /*html*/ `
-      <article onclick="showDetailView('${post.id}')">
-      <h2>${post.title.rendered}</h2>
-      <p>${post.acf.description}</p>
+      <article >
+      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
       ${this.generateFavPostsButton(post.id)}
@@ -167,19 +159,12 @@ class MoodSelector {
     let htmlTemplate = "";
     for (let post of posts) {
       htmlTemplate += /*html*/ `
-      <article onclick="showDetailView('${post.id}')" class="nav-link" id="activityBox">
-      <h2>${post.title.rendered}</h2>
-      <p>${post.acf.description}</p>
+       <article >
+      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
-      <a id = "fav-button"
-      onclick = "pushPost()" >
-      <svg xmlns="http://www.w3.org/2000/svg" width="15.969" height="14.184" viewBox="0 0 15.969 14.184">
-      <g id="Icon_feather-heart" data-name="Icon feather-heart" transform="translate(1 1)">
-      <path id="Icon_feather-heart-2" data-name="Icon feather-heart" d="M15.215,5.574a3.675,3.675,0,0,0-5.2,0l-.708.708L8.6,5.574a3.676,3.676,0,1,0-5.2,5.2l.708.708,5.2,5.2,5.2-5.2.708-.708a3.675,3.675,0,0,0,0-5.2Z" transform="translate(-2.323 -4.497)" fill="none" stroke="#583953" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-      </g>
-      </svg>
-      </a>
+      ${this.generateFavPostsButton(post.id)}
       </div>
       </article>
     `;
@@ -297,21 +282,21 @@ class MoodSelector {
 
   appendFavPosts() {
     let html = "";
-    for (const post of this.posts) {
+    for (const post of this.favposts) {
       console.log(post);
       html += /*html*/ `
-      <article onclick="showDetailView('${post.id}')">
-      <h2>${post.title.rendered}</h2>
-      <p>${post.acf.description}</p>
+       <article >
+      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
-      ${generateFavPostsButton(post.id)}
+      ${this.generateFavPostsButton(post.id)}
       </div>
       </article>
     `;
     }
     // if no movies display a default text
-    if (this.posts.length === 0) {
+    if (this.favposts.length === 0) {
       html = "<p>No activities added to favorites</p>"
     }
     document.querySelector("#section-favorites").innerHTML = html;
@@ -322,13 +307,25 @@ class MoodSelector {
    */
   generateFavPostsButton(postId) {
     let btnTemplate = `
-        <button onclick="addToFavourites('${postId}')"> Add to favourites </button>
+        <a id = "fav-button" onclick="addToFavourites('${postId}')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15.969" height="14.184" viewBox="0 0 15.969 14.184">
+      <g id="Icon_feather-heart" data-name="Icon feather-heart" transform="translate(1 1)">
+      <path id="Icon_feather-heart-2" data-name="Icon feather-heart" d="M15.215,5.574a3.675,3.675,0,0,0-5.2,0l-.708.708L8.6,5.574a3.676,3.676,0,1,0-5.2,5.2l.708.708,5.2,5.2,5.2-5.2.708-.708a3.675,3.675,0,0,0,0-5.2Z" transform="translate(-2.323 -4.497)" fill="none" stroke="#583953" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      </svg>
+      </a>
     `;
-    if (isFavPosts(postId)) {
+    if (this.isFavPosts(postId)) {
       btnTemplate = `
-      <button onclick="removeFromFavourites('${postId}')" class="rm">Remove from favourites</button>`;
+      <a id = "fav-button" onclick = "removeFromFavourites('${postId}')" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="15.969" height="14.184" viewBox="0 0 15.969 14.184">
+      <g id="Icon_feather-heart" data-name="Icon feather-heart" transform="translate(1 1)">
+      <path id="Icon_feather-heart-2" data-name="Icon feather-heart" d="M15.215,5.574a3.675,3.675,0,0,0-5.2,0l-.708.708L8.6,5.574a3.676,3.676,0,1,0-5.2,5.2l.708.708,5.2,5.2,5.2-5.2.708-.708a3.675,3.675,0,0,0,0-5.2Z" transform="translate(-2.323 -4.497)" fill="#583953" stroke="#583953" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      </svg>
+      </a>`;
+
     }
-    console.log(btnTemplate);
     return btnTemplate;
   }
 
@@ -336,26 +333,26 @@ class MoodSelector {
    * Adding movie to favorites by given movieId
    */
   addToFavourites(postId) {
-    let favPost = this.posts.find(post => post.id === postId);
+    let favPost = this.filtered.find(post => post.id == postId);
     this.favposts.push(favPost);
-    this.appendPosts(this.posts); // update the DOM to display the right button
-    appendFavPosts(); // update the DOM to display the right items from the _favMovies list
+    this.appendPostsByCatAndTag(this.filtered); // update the DOM to display the right button
+    this.appendFavPosts(); // update the DOM to display the right items from the _favMovies list
   }
 
   /**
    * Removing movie from favorites by given movieId
    */
   removeFromFavourites(postId) {
-    this.favposts = this.favposts.filter(post => post.id !== postId);
-    this.appendPosts(this.posts); // update the DOM to display the right button
-    appendFavPosts(); // update the DOM to display the right items from the _favMovies list
+    this.favposts = this.favposts.filter(post => post.id != postId);
+    this.appendPostsByCatAndTag(this.filtered); // update the DOM to display the right button
+    this.appendFavPosts(); // update the DOM to display the right items from the _favMovies list
   }
 
   /**
    * Checking if movie already is added to _favMovies
    */
   isFavPosts(postId) {
-    return this.favposts.find(post => post.id === postId); // checking if _favMovies has the movie with matching id or not
+    return this.favposts.find(post => post.id == postId); // checking if _favMovies has the movie with matching id or not
   }
 
 }
