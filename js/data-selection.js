@@ -62,8 +62,6 @@ class MoodSelector {
     this.appendPostsByCatAndTag(data);
   }
 
-
-
   appendPosts(posts) {
     let htmlTemplate = "";
     for (let post of posts) {
@@ -143,7 +141,6 @@ class MoodSelector {
       </article>
     `;
     }
-
 
     if (posts.length === 0) {
       html = `
@@ -273,7 +270,7 @@ class MoodSelector {
         <p>${postObject.acf.whattodo}</p>
         </article>
     `;
-    navigateTo("#/detailView");
+    navigateto("#/detailView");
   }
 
   // Making favorite tab functional - Marius
@@ -297,7 +294,7 @@ class MoodSelector {
     }
     // if no movies display a default text
     if (this.favposts.length === 0) {
-      html = "<p>No activities added to favorites</p>"
+      html = "<p>No activities added to favorites</p>";
     }
     document.querySelector("#section-favorites").innerHTML = html;
   }
@@ -324,7 +321,6 @@ class MoodSelector {
       </g>
       </svg>
       </a>`;
-
     }
     return btnTemplate;
   }
@@ -333,7 +329,7 @@ class MoodSelector {
    * Adding movie to favorites by given movieId
    */
   addToFavourites(postId) {
-    let favPost = this.filtered.find(post => post.id == postId);
+    let favPost = this.filtered.find((post) => post.id == postId);
     this.favposts.push(favPost);
     this.appendPostsByCatAndTag(this.filtered); // update the DOM to display the right button
     this.appendFavPosts(); // update the DOM to display the right items from the _favMovies list
@@ -343,7 +339,7 @@ class MoodSelector {
    * Removing movie from favorites by given movieId
    */
   removeFromFavourites(postId) {
-    this.favposts = this.favposts.filter(post => post.id != postId);
+    this.favposts = this.favposts.filter((post) => post.id != postId);
     this.appendPostsByCatAndTag(this.filtered); // update the DOM to display the right button
     this.appendFavPosts(); // update the DOM to display the right items from the _favMovies list
   }
@@ -352,9 +348,8 @@ class MoodSelector {
    * Checking if movie already is added to _favMovies
    */
   isFavPosts(postId) {
-    return this.favposts.find(post => post.id == postId); // checking if _favMovies has the movie with matching id or not
+    return this.favposts.find((post) => post.id == postId); // checking if _favMovies has the movie with matching id or not
   }
-
 }
 
 export default MoodSelector;
