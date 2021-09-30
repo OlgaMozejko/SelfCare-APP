@@ -6,13 +6,12 @@
 let hr = new Date().getHours();
 let hi = "";
 
-if (hr > 1 && hr < 12) {
+if (hr >= 1 && hr < 12) {
   hi = "Good Morning";
 }
-if (hr > 12 && hr < 17) {
+if (hr >= 12 && hr <= 17) {
   hi = "Greetings";
-}
-if (hr > 17 && hr < 1) {
+} else {
   hi = "Good Evening";
 }
 
