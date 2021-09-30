@@ -67,6 +67,10 @@ window.isFavPosts = function (postId) {
   moodSelector.isFavPosts(postId);
 };
 
+window.appendFavPosts = function () {
+  moodSelector.appendFavPosts();
+}
+
 
 
 //------------ Olga -----------
@@ -150,7 +154,7 @@ function categorySelected(catId) {
     bob = `<img src="img/stressedboi.png" class="blueboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
 
- 
+
   }
   if (catId === "4") {
     document.querySelector("#changing-text").innerHTML = "";
@@ -210,10 +214,10 @@ window.timeSelected = (tagId) => timeSelected(tagId);
 
 // Saves the input value = name, to the Local Storage - Marius
 
-window.save_name = function () {
+window.saveNameSettings = function () {
   let saveUser = document.querySelector("#save-name");
   let userName = document.querySelector("#username");
-  let savedName = document.querySelectorAll(".user-name");
+  let savedNames = document.querySelectorAll(".user-name");
 
   saveUser.addEventListener(
     "submit",
@@ -225,13 +229,15 @@ window.save_name = function () {
       if (userName.value.length < 1) return;
 
       // Add item to wishlist
-      savedName.innerHTML = userName.value;
+      for (const name of savedNames) {
+        name.innerHTML = userName.value;
+      }
+
+      // Save the list to localStorage
+      localStorage.setItem("savedName", userName.value);
 
       // Clear input
       userName.value = "";
-
-      // Save the list to localStorage
-      localStorage.setItem("savedName", savedName.innerHTML);
     },
     false
   );
@@ -240,17 +246,19 @@ window.save_name = function () {
   var saved = localStorage.getItem("savedName");
 
   // If there are any saved items, update our list
-  if (saved) {
-    savedName.innerHTML = saved;
+  for (const name of savedNames) {
+    if (saved) {
+      name.innerHTML = saved;
+    }
   }
 };
 
-save_name();
+saveNameSettings();
 
-window.save_name_main = function () {
+window.saveNameHome = function () {
   let saveUser = document.querySelector("#save-name2");
   let userName = document.querySelector("#username2");
-  let savedName = document.querySelector(".user-name");
+  let savedNames = document.querySelectorAll(".user-name");
 
   saveUser.addEventListener(
     "submit",
@@ -261,14 +269,15 @@ window.save_name_main = function () {
       // Ignore it if the wishlist item is empty
       if (userName.value.length < 1) return;
 
-      // Add item to wishlist
-      savedName.innerHTML = userName.value;
+      for (const name of savedNames) {
+        name.innerHTML = userName.value;
+      }
+
+      // Save the list to localStorage
+      localStorage.setItem("savedName", userName.value);
 
       // Clear input
       userName.value = "";
-
-      // Save the list to localStorage
-      localStorage.setItem("savedName", savedName.innerHTML);
     },
     false
   );
@@ -277,13 +286,16 @@ window.save_name_main = function () {
   var saved = localStorage.getItem("savedName");
 
   // If there are any saved items, update our list
-  if (saved) {
-    savedName.innerHTML = saved;
+  for (const name of savedNames) {
+    if (saved) {
+      name.innerHTML = saved;
+    }
   }
+
 
 };
 
-save_name_main();
+saveNameHome();
 
 window.showEditName = function () {
   let edit = document.querySelector("#edit-name");

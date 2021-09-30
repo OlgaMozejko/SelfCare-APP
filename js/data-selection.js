@@ -21,7 +21,6 @@ class MoodSelector {
     this.getPosts();
     this.getCategories();
     this.getTags();
-    this.getPostsByCatAndTag();
   }
 
   async getPosts() {
@@ -135,31 +134,33 @@ class MoodSelector {
   }
 
   // --------------------- Olga ---------
-  //using this finction for mood selection : moods = categories
+  //using this function for mood selection : moods = categories
 
   appendPostsByCatAndTag(posts) {
-    let htmlTemplate = "";
+    let html = "";
+    console.log(posts);
     for (let post of posts) {
-      htmlTemplate += /*html*/ `
+      html += /*html*/ `
       <article onclick="showDetailView('${post.id}')">
       <h2>${post.title.rendered}</h2>
       <p>${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
-      ${generateFavPostsButton(post.id)}
+      ${this.generateFavPostsButton(post.id)}
       </div>
       </article>
     `;
     }
 
+
     if (posts.length === 0) {
-      htmlTemplate = `
+      html = `
         <h5>No Activities</h5><br>
         <h5>try again ❤</h5>
       `;
     }
 
-    document.querySelector("#activities-container").innerHTML = htmlTemplate;
+    document.querySelector("#activities-container").innerHTML = html;
   }
 
   appendPostsByCategory(posts) {
