@@ -226,26 +226,26 @@ class MoodSelector {
 
   // order by environment of the activity function - Marius
   orderByEnvironment() {
-    this.posts.sort((activity1, activity2) => {
+    this.favposts.sort((activity1, activity2) => {
       return activity1.acf.environment.localeCompare(activity2.acf.environment);
     });
-    this.appendPosts(this.posts);
+    this.appendFavPosts();
   }
 
   // order by latest activities function - Marius
   orderByLatest() {
-    this.posts.sort((activity1, activity2) => {
+    this.favposts.sort((activity1, activity2) => {
       return activity2.date.localeCompare(activity1.date);
     });
-    this.appendPosts(this.posts);
+    this.appendFavPosts();
   }
 
   // order by oldest activities function - Marius
   orderByOldest() {
-    this.posts.sort((activity1, activity2) => {
+    this.favposts.sort((activity1, activity2) => {
       return activity1.date.localeCompare(activity2.date);
     });
-    this.appendPosts(this.posts);
+    this.appendFavPosts();
   }
 
   // Detail View function - Vlada
