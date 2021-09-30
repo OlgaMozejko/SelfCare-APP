@@ -190,6 +190,9 @@ window.categorySelected = (catId) => categorySelected(catId);
 window.timeSelected = (tagId) => timeSelected(tagId);
 
 
+window.navigateto = function (id) {
+  navigateTo(id);
+}
 
 // window.filterByEnvironment = (value) => moodSelector.filterByEnvironment(value);
 
