@@ -251,7 +251,7 @@ class MoodSelector {
   // Detail View function - Vlada
   showDetailView(id) {
     const postObject = this.posts.find((post) => post.id == id);
-    document.querySelector("#detailed-view-container h2").innerHTML =
+    document.querySelectorAll("#detailed-view-container h2").innerHTML =
       postObject.title.rendered;
     document.querySelector("#detailed-view-container").innerHTML = /*html*/ `
         <article>
