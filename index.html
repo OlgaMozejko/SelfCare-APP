@@ -262,7 +262,7 @@
           recommendations.
           <br> Did you find the best one<br> for you?
           Favorite it! </h2>
-        <button type="button" class="button_onboard" onclick="navigateTo('#/home');">Get Started</button>
+        <button type="button" class="button_onboard" onclick="navigateto('#/home');">Get Started</button>
 
       </div>
     </div>
@@ -388,7 +388,6 @@
     </header>
     <div class="allActivities-heading">
       <h2 class="activities-heading">We picked the best activities for you 🥰</h2>
-      <h5 class="activities-subheading">Hope that you find something at your own pleasure.</h5>
     </div>
     <section class="activities-wrapper">
       <select id="sortBy" onchange="filterByEnvironment(this.value)" class="activities-select">
@@ -405,7 +404,7 @@
 
   <!--- Detailed view - Vlada -->
   <section id="detailedView" class="page">
-    <header class="topbar">
+    <header id="detailHeader" class="topbar">
       <a href="#/timeSelection" class="nav-link left">
         <svg xmlns="http://www.w3.org/2000/svg" width="25.075" height="24.44" viewBox="0 0 25.075 24.44">
           <defs>
@@ -421,7 +420,9 @@
         </svg>
       </a>
     </header>
-    <section id="detailed-view-wrapper">
+    <div class="emoji-icon" id="emojiIcon"></div>
+    <div class="shadow-icon" id="shadowIcon"></div>
+    <section id="detailed-view-wrapper" class="detailed-view-wrapper">
       <div id="detailed-view-container"></div>
 
     </section>

@@ -6,13 +6,21 @@
   --peach: #fbe1d5;
   --peach-dark: #ffac85;
   --sad-blue: #899ad9;
+  --sad-blue-lower: #a4b0dc;
   --happy-yellow: #ffd654;
+  --happy-yellow-lower: #f6da7e;
   --indiffrent-brown: #ded0b5;
+  --indiffrent-brown-lower: #dfd4be;
   --unmotivated-green: #80cd7c;
+  --unmotivated-green-lower: #9ed49b;
   --tired-purple: #c3b9de;
+  --tired-purple-lower: #cdc6e0;
   --stressed-grey: #b6b4bf;
+  --stressed-grey-lower: #c3c2ca;
   --frustrated-red: #e37373;
+  --frustrated-red-lower: #e39494;
   --anxious-purple: #9c6aa8;
+  --anxious-purple-lower: #b18eba;
 }
 
 /* ---------- general styling ---------- */
@@ -196,7 +204,6 @@ svg {
   max-width: 300px;
 }
 
-
 /* Bara's bullshit */
 
 .welcome-wrapper {
@@ -205,41 +212,36 @@ svg {
   background-color: white;
   border-radius: 40px 40px 0 0;
   height: 80vh;
-
-
 }
 
 .welcome-container {
   margin: 0 auto 0 auto;
   text-align: center;
-
 }
 
 .textwelcome1 {
   margin-top: 2rem;
 
   font-size: 16px;
-  color: #6A5573
+  color: #6a5573;
 }
 
 .textwelcome2 {
   margin-top: -15px;
   font-size: 30px;
-  color: #6A5573
+  color: #6a5573;
 }
 
 .textwelcome3 {
   margin-top: -30px;
   font-size: 16px;
-  color: #6A5573
+  color: #6a5573;
 }
 
 .logowelcome {
   height: 40%;
   width: auto;
 }
-
-
 
 .pic-container {
   height: 363px;
@@ -249,7 +251,6 @@ svg {
 
   border-radius: 40px 40px 0 0;
 }
-
 
 .wavybob {
   height: 400px;
@@ -290,7 +291,6 @@ svg {
 .buttons {
   margin: 0 auto;
   margin-top: 5em;
-
 }
 
 /*.buttons button:not(:last-child) {
@@ -308,13 +308,10 @@ svg {
 }
 
 .inputname {
-
   padding: 10px 24px;
   width: 75%;
   font-size: 10px;
-
 }
-
 
 ::placeholder {
   color: #583953;
@@ -322,7 +319,7 @@ svg {
 }
 
 .button_onboard {
-  background-color: #F6A580;
+  background-color: #f6a580;
   color: white;
   margin: 0 auto;
   display: block;
@@ -330,14 +327,12 @@ svg {
   width: 75%;
 
   border-radius: 50px;
-
-
 }
 
 .button_skip {
-  border-color: #F6A580;
+  border-color: #f6a580;
   border: 5px;
-  color: #F6A580;
+  color: #f6a580;
   margin: 1rem auto 0 auto;
   display: block;
   padding: 10px 24px;
@@ -361,15 +356,13 @@ svg {
   border-radius: 20px;
   margin: 10px;
   height: 10px;
-
 }
 
 .box {
-  background-color: #FBE1D5;
+  background-color: #fbe1d5;
   border-radius: 20px;
   margin: 10px;
   height: 10px;
-
 }
 
 .arrowbox {
@@ -381,7 +374,6 @@ svg {
 .arrowmenu {
   margin: auto 10px;
   height: 10px;
-
 }
 
 .arrowonboard {
@@ -498,7 +490,7 @@ select:focus {
   column-gap: 5px;
 }
 
-.filter-container>* {
+.filter-container > * {
   flex: 1;
 }
 
@@ -674,15 +666,15 @@ select:focus {
   transition: 0.4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: var(--peach-dark);
 }
 
-input:focus+.slider {
+input:focus + .slider {
   box-shadow: 0 0 1px var(--peach-dark);
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(29px);
   -ms-transform: translateX(29px);
   transform: translateX(29px);
@@ -900,7 +892,7 @@ select:focus {
   gap: 1.5em;
 }
 
-.activities-container>article {
+.activities-container > article {
   text-align: center;
   padding: 0.7em 2em;
   background-color: var(--peach-dark);
@@ -909,10 +901,10 @@ select:focus {
   color: var(--black);
 }
 
-.activities-container>article>div {
+.activities-container > article > div {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -939,6 +931,48 @@ select:focus {
   background-position-x: 102px;
   margin: 2em;
   margin-bottom: 0;
+}
+
+/*---------Detailed view - Vlada-------*/
+.detailedView {
+  z-index: -2;
+}
+
+.detailed-view-wrapper {
+  background-color: var(--white);
+  margin: 130px 0 0 0;
+  border-radius: 44px 44px 0 0;
+  z-index: 1;
+}
+
+.detailed-view-wrapper > article > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.detailed-view-wrapper > article {
+  padding: 0.7em 2em;
+  color: var(--black);
+  padding-top: 60px;
+}
+
+.detailed-view-wrapper > article > h2 {
+  margin: 0;
+}
+
+.detailed-view-wrapper > article > h3 {
+  font-weight: 600;
+}
+
+.emoji-icon {
+  height: 65%;
+  width: 65%;
+  position: absolute;
+  top: 2.5em;
+  left: 4em;
 }
 
 /*media query for larger screens*/

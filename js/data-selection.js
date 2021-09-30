@@ -136,6 +136,7 @@ class MoodSelector {
       <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
+      <p class = "time-view">${post.acf.time}</p>
       ${this.generateFavPostsButton(post.id)}
       </div>
       </article>
@@ -250,7 +251,7 @@ class MoodSelector {
     const postObject = this.posts.find((post) => post.id == id);
     document.querySelectorAll("#detailed-view-container h2").innerHTML =
       postObject.title.rendered;
-    document.querySelector("#detailed-view-container").innerHTML = /*html*/ `
+    document.querySelector("#detailed-view-wrapper").innerHTML = /*html*/ `
         <article>
         <div>
         <p>${postObject.acf.environment}</p>
@@ -265,9 +266,12 @@ class MoodSelector {
         </div>
         <h2>${postObject.title.rendered}</h2>
         <p>${postObject.acf.description}</p>
-        <p>${postObject.acf.how}</p>
+        <h3> What do you need? </h3>
         <p>${postObject.acf.needs}</p>
+        <h3> What should you do? </h3>
         <p>${postObject.acf.whattodo}</p>
+        <h3> How does it work? </h3>
+        <p>${postObject.acf.how}</p>
         </article>
     `;
     navigateto("#/detailedView");
