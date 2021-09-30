@@ -181,18 +181,18 @@ class MoodSelector {
   }
 
   //filter by environment function for activity tab - Vlada
-  /*
+
   filterByEnvironment(environment) {
-    if (environment === "all") {
-      this.appendPosts(this.posts);
+    if (environment == "all") {
+      this.appendPostsByCatAndTag(this.filtered);
     } else {
-      const results = this.posts.filter(
-        (post) => post.acf.environment === environment
+      const results = this.filtered.filter(
+        (post) => post.acf.environment == environment
       );
-      this.appendPosts(results);
+      this.appendPostsByCatAndTag(results);
     }
   }
-  */
+
 
 
   // filter by emotions function - Marius

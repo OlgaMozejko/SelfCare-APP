@@ -1,10 +1,16 @@
-import { navigateTo } from "./router.js";
+import {
+  navigateTo
+} from "./router.js";
 
-import { dailyMessage } from "./motivation.js";
+import {
+  dailyMessage
+} from "./motivation.js";
 
 dailyMessage();
 
-import { welcomeMessage } from "./welcome-message.js";
+import {
+  welcomeMessage
+} from "./welcome-message.js";
 
 welcomeMessage();
 
@@ -247,7 +253,7 @@ window.navigateto = function (id) {
   navigateTo(id);
 };
 
-// window.filterByEnvironment = (value) => moodSelector.filterByEnvironment(value);
+window.filterByEnvironment = (value) => moodSelector.filterByEnvironment(value);
 
 /*window.save_data = function () {
   if (typeof (Storage) !== "undefined") {
