@@ -19,8 +19,11 @@ let bob = "";
 
 window.filterbyEmotions = function (value) {
   moodSelector.filterByEmotions(value);
-  moodSelector.getPostsByCategory(value);
 };
+
+window.getPostsByCategory = function (categoryId) {
+  moodSelector.getPostsByCategory(categoryId);
+}
 
 window.orderBy = function (value) {
   moodSelector.orderBy(value);

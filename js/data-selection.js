@@ -44,7 +44,8 @@ class MoodSelector {
   async getPostsByCategory(categoryId) {
     let url = `http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&categories=${categoryId}`;
     let data = await fetch(url).then((res) => res.json());
-    this.appendPostsByCategory(data);
+    this.filtered = data;
+    this.appendPostsByCategory(this.filtered);
   }
 
   async getPostsByTags(tagId) {
@@ -83,7 +84,7 @@ class MoodSelector {
     let html = "";
     for (let category of this.categories) {
       html += `
-      <button id="${category.id}" value="${category.id}" class="filterByEmotions" onclick="filterbyEmotions(this.value)">${category.name}</button>
+      <button id="${category.id}" value="${category.id}" class="filterByEmotions" onclick="filterbyEmotions(this.value); getPostsByCategory(this.value)">${category.name}</button>
       `;
     }
     document.querySelector(".filter-container").innerHTML += html;
@@ -128,7 +129,7 @@ class MoodSelector {
 
   appendPostsByCatAndTag(posts) {
     let html = "";
-    console.log(posts);
+    // console.log(posts);
     for (let post of posts) {
       html += /*html*/ `
       <article >
@@ -173,9 +174,10 @@ class MoodSelector {
         <h5>No Activities</h5><br>
         <h5>try again ❤</h5>
       `;
-    }
 
-    document.querySelector("#section-favorites").innerHTML = htmlTemplate;
+    }
+    console.log(this.favposts);
+    //document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
 
   //filter by environment function for activity tab - Vlada
@@ -192,23 +194,34 @@ class MoodSelector {
   }
   */
 
+
   // filter by emotions function - Marius
   filterByEmotions(value) {
     const buttons = document.querySelectorAll(
       ".filter-container .filterByEmotions"
     );
-    for (const button of buttons)
+    for (const button of buttons) {
       if (value === button.getAttribute("id")) {
         button.classList.add("selected");
       } else {
         button.classList.remove("selected");
       }
-    /*if (value == "all") {
-      this.getPosts();
+    }
+    if (value == "all") {
+      this.appendFavPosts();
     } else {
-      const results = this.categories.filter(post => post.categories[id] == value);
-      this.getPostsByCategory(results);
-    }*/
+      for (let i in this.favposts) {
+        for (let y in this.favposts[i].categories) {
+          //console.log(this.favposts[i].categories[y]);
+
+          const results = this.favposts.filter(post => post.categories[y] == value)
+          this.appendFilteredFavPosts(results);
+          //console.log(results);
+
+        }
+      }
+    }
+
   }
 
   // order function - Marius
@@ -284,7 +297,29 @@ class MoodSelector {
   appendFavPosts() {
     let html = "";
     for (const post of this.favposts) {
-      console.log(post);
+      // console.log(post);
+      html += /*html*/ `
+       <article >
+      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
+      <div>
+      <p>${post.acf.environment}</p>
+      ${this.generateFavPostsButton(post.id)}
+      </div>
+      </article>
+    `;
+    }
+    // if no movies display a default text
+    if (this.favposts.length === 0) {
+      html = "<p>No activities added to favorites</p>";
+    }
+    document.querySelector("#section-favorites").innerHTML = html;
+  }
+
+  appendFilteredFavPosts(posts) {
+    let html = "";
+    for (const post of posts) {
+      // console.log(post);
       html += /*html*/ `
        <article >
       <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
