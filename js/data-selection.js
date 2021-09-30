@@ -192,6 +192,7 @@ class MoodSelector {
   }
 
   // filter by emotions function - Marius
+
   filterByEmotions(value) {
     const buttons = document.querySelectorAll(
       ".filter-container .filterByEmotions"
@@ -288,8 +289,6 @@ class MoodSelector {
 
   // Making favorite tab functional - Marius
 
-  //Appending fav movies to the DOM by looping through _favMovies
-
   appendFavPosts() {
     let html = "";
     for (const post of this.favposts) {
@@ -305,7 +304,6 @@ class MoodSelector {
       </article>
     `;
     }
-    // if no movies display a default text
     if (this.favposts.length === 0) {
       html = "<p>No activities added to favorites</p>";
     }
@@ -361,29 +359,29 @@ class MoodSelector {
   }
 
   /**
-   * Adding movie to favorites by given movieId
+   * Adding activities to favorites by given postId
    */
   addToFavourites(postId) {
     let favPost = this.filtered.find((post) => post.id == postId);
     this.favposts.push(favPost);
     this.appendPostsByCatAndTag(this.filtered); // update the DOM to display the right button
-    this.appendFavPosts(); // update the DOM to display the right items from the _favMovies list
+    this.appendFavPosts(); // update the DOM to display the right items from the favorite list
   }
 
   /**
-   * Removing movie from favorites by given movieId
+   * Removing activities from favorites by given postId
    */
   removeFromFavourites(postId) {
     this.favposts = this.favposts.filter((post) => post.id != postId);
     this.appendPostsByCatAndTag(this.filtered); // update the DOM to display the right button
-    this.appendFavPosts(); // update the DOM to display the right items from the _favMovies list
+    this.appendFavPosts(); // update the DOM to display the right items from the favorite list
   }
 
   /**
-   * Checking if movie already is added to _favMovies
+   * Checking if the activity already is added to favorite
    */
   isFavPosts(postId) {
-    return this.favposts.find((post) => post.id == postId); // checking if _favMovies has the movie with matching id or not
+    return this.favposts.find((post) => post.id == postId); // checking if favorite has the activity with matching id or not
   }
 }
 
