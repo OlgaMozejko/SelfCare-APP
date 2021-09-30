@@ -270,7 +270,7 @@ class MoodSelector {
         <p>${postObject.acf.whattodo}</p>
         </article>
     `;
-    navigateto("#/detailView");
+    navigateto("#/detailedView");
   }
 
   // Making favorite tab functional - Marius
