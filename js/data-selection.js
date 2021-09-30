@@ -174,14 +174,12 @@ class MoodSelector {
         <h5>No Activities</h5><br>
         <h5>try again ❤</h5>
       `;
-
     }
     console.log(this.favposts);
     //document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
 
   //filter by environment function for activity tab - Vlada
-
   filterByEnvironment(environment) {
     if (environment == "all") {
       this.appendPostsByCatAndTag(this.filtered);
@@ -192,8 +190,6 @@ class MoodSelector {
       this.appendPostsByCatAndTag(results);
     }
   }
-
-
 
   // filter by emotions function - Marius
   filterByEmotions(value) {
@@ -214,14 +210,14 @@ class MoodSelector {
         for (let y in this.favposts[i].categories) {
           //console.log(this.favposts[i].categories[y]);
 
-          const results = this.favposts.filter(post => post.categories[y] == value)
+          const results = this.favposts.filter(
+            (post) => post.categories[y] == value
+          );
           this.appendFilteredFavPosts(results);
           //console.log(results);
-
         }
       }
     }
-
   }
 
   // order function - Marius
