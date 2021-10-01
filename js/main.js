@@ -369,3 +369,10 @@ window.showEditName = function () {
 
   }
 };
+
+window.showMenu = function () {
+  let navBar = document.querySelector(".tabbar");
+  if (navBar.style.display = "none") {
+    navBar.style.display = "flex";
+  }
+}

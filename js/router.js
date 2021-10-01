@@ -80,79 +80,18 @@ function setActiveTab(pathname) {
   }
 }
 
-// order function - Marius
-function orderBy(value) {
-  if (value === "environment") {
-    orderByBrand();
-  } else if (value === "latest") {
-    orderByModel();
-  } else if (value === "oldest") {
-    orderByModel();
-  }
-}
-
-// order by environment of the activity function - Marius
-function orderByIndoors() {
-  _activities.sort((activity1, activity2) => {
-    return activity1.environment.localeCompare(activity2.environment);
-  });
-  appendProducts(_activities);
-}
-
-// order by latest activities function - Marius
-function orderByLatest() {
-  _activities.sort((activity1, activity2) => {
-    return activity1.date.localeCompare(activity2.date);
-  });
-  appendProducts(_activities);
-}
-
-// order by oldest activities function - Marius
-function orderByOldest() {
-  _activities.sort((activity1, activity2) => {
-    return activity2.date.localeCompare(activity1.date);
-  });
-  appendProducts(_activities);
-}
-// filter by emotions function - Marius
-function filterByEmotions(value) {
-  const buttons = document.querySelectorAll(
-    ".filter-container .filterByEmotions"
-  );
-  for (const button of buttons)
-    if (value === button.getAttribute("id")) {
-      button.classList.add("selected");
-    } else {
-      button.classList.remove("selected");
-    }
-
-  if (value == "all") {
-    appendProducts(_activities);
-  } else {
-    const results = _activities.filter(
-      (activity) => activity.emotionType == value
-    );
-    appendProducts(results);
-  }
-}
-
-// reset by emotions function - Marius
-function resetFilterByEmotions() {
-  document.querySelector("#filterByEmotions").value = "all";
-}
 
 //Hiding the menu which is fighting me - Bara
-/*
-let cUrl = window.location.href;
 
-  if (cUrl.indexOf("home") != -1 ||
-cUrl.indexOf("favorites") != -1 ||
-cUrl.indexOf("settings") != -1 ||
-cUrl.indexOf("timeSelection") != -1 ||
-cUrl.indexOf("allActivities") != -1 ||
-cUrl.indexOf("detailedView") != -1) {
-    menu.style.display  = "flex";
- } else {
-     menu.style.display  = "none";
-}
-*/
+// let cUrl = window.location.href;
+
+// if (cUrl.indexOf("home") != -1 ||
+//   cUrl.indexOf("favorites") != -1 ||
+//   cUrl.indexOf("settings") != -1 ||
+//   cUrl.indexOf("timeSelection") != -1 ||
+//   cUrl.indexOf("allActivities") != -1 ||
+//   cUrl.indexOf("detailedView") != -1) {
+//   menu.style.display = "flex";
+// } else {
+//   menu.style.display = "none";
+// }
