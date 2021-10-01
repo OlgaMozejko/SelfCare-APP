@@ -269,19 +269,27 @@ class MoodSelector {
         </div>
         <h2>${postObject.title.rendered}</h2>
         <p>${postObject.acf.description}</p>
+        <h3> How does it work? </h3>
+        <p>${postObject.acf.how}</p>
         <h3> What do you need? </h3>
         <p>${postObject.acf.needs}</p>
         <h3> What should you do? </h3>
         <p>${postObject.acf.whattodo}</p>
-        <h3> How does it work? </h3>
-        <p>${postObject.acf.how}</p>
+        <img src="${getImageUrl(postObject)}">
         </article>
     `;
     navigateto("#/detailedView");
+    // function to get image url and append it only for activities that have it - Vlada
+    function getImageUrl(postObject) {
+      let url = "";
+      if (postObject.acf.img.url) {
+        url = postObject.acf.img.url;
+      }
+      return url;
+    }
   }
 
   // Making favorite tab functional - Marius
-
   appendFavPosts() {
     let html = "";
     for (const post of this.favposts) {
