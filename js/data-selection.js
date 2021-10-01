@@ -105,8 +105,8 @@ class MoodSelector {
     for (let post of posts) {
       htmlTemplate += /*html*/ `
       <article >
-      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
-      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
+      <h2 onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
       ${this.generateFavPostsButton(post.id)}
@@ -133,8 +133,8 @@ class MoodSelector {
     for (let post of posts) {
       html += /*html*/ `
       <article >
-      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
-      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
+      <h2 onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
       <p class = "time-view">${post.acf.time}</p>
@@ -159,8 +159,8 @@ class MoodSelector {
     for (let post of posts) {
       htmlTemplate += /*html*/ `
        <article >
-      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
-      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
+      <h2 onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
       ${this.generateFavPostsButton(post.id)}
@@ -278,7 +278,6 @@ class MoodSelector {
         <img src="${getImageUrl(postObject)}">
         </article>
     `;
-    navigateto("#/detailedView");
     // function to get image url and append it only for activities that have it - Vlada
     function getImageUrl(postObject) {
       let url = "";
@@ -296,8 +295,8 @@ class MoodSelector {
       // console.log(post);
       html += /*html*/ `
        <article >
-      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
-      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
+      <h2 onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
       ${this.generateFavPostsButton(post.id)}
@@ -317,8 +316,8 @@ class MoodSelector {
       // console.log(post);
       html += /*html*/ `
        <article >
-      <h2 onclick="showDetailView('${post.id}')">${post.title.rendered}</h2>
-      <p onclick="showDetailView('${post.id}')">${post.acf.description}</p>
+      <h2 onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.title.rendered}</h2>
+      <p onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.acf.description}</p>
       <div>
       <p>${post.acf.environment}</p>
       ${this.generateFavPostsButton(post.id)}
@@ -367,6 +366,7 @@ class MoodSelector {
     this.favposts.push(favPost);
     this.appendPostsByCatAndTag(this.filtered); // update the DOM to display the right button
     this.appendFavPosts(); // update the DOM to display the right items from the favorite list
+    this.showDetailView(postId);
   }
 
   /**
@@ -376,6 +376,7 @@ class MoodSelector {
     this.favposts = this.favposts.filter((post) => post.id != postId);
     this.appendPostsByCatAndTag(this.filtered); // update the DOM to display the right button
     this.appendFavPosts(); // update the DOM to display the right items from the favorite list
+    this.showDetailView(postId);
   }
 
   /**
