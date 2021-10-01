@@ -209,7 +209,7 @@ svg {
   max-width: 300px;
 }
 
-/* Bara's bullshit */
+/* Bara's amazing styling */
 
 .welcome-wrapper {
   display: flex;
@@ -899,6 +899,43 @@ option {
 
 select:focus {
   color: #a98c93;
+}
+
+/* ----------Quiz Game - Olga ----------*/
+
+.quiz-wrapper {
+  background-color: var(--white);
+  min-height: 650px;
+  height: 100%;
+  margin: 25px 0 0 0;
+  margin-top: 80px;
+  border-radius: 44px 44px 0 0;
+}
+
+.home-top2 {
+  padding-top: 150px;
+}
+
+.img-emotion2 {
+  width: 100px;
+  margin: 0 auto;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-bottom: -15px;
+  margin-top: 40px;
+}
+
+.small-img {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 70px;
+  opacity: 70%;
+}
+
+.home-top3 {
+  padding-top: 10px;
 }
 
 /*---------Activities tab - Vlada-------*/

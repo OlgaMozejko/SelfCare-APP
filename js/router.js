@@ -14,6 +14,11 @@ const routes = {
   "#/timeSelection": "timeSelection",
   "#/allActivities": "allActivities",
   "#/detailedView": "detailedView",
+  "#/quiz1" : "quiz1",
+  "#/quiz2" : "quiz2",
+  "#/quiz3" : "quiz3",
+  "#/quiz4" : "quiz4",
+  "#/quiz5" : "quiz5",
 };
 
 /**
