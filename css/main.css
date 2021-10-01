@@ -216,15 +216,16 @@ svg {
   padding-top: 50px;
   background-color: white;
   border-radius: 40px 40px 0 0;
-  height: 850px;
+  height: 80%;
 }
 
 .onboard-wrapper {
   display: flex;
   padding-top: 50px;
+  padding-bottom: 40px;
   background-color: white;
   border-radius: 40px 40px 0 0;
-  height: 400;
+  height: 100%;
 
 }
 
@@ -233,9 +234,12 @@ svg {
   text-align: center;
 }
 
+.btn-container{
+  margin-top: 10px;}
+
+  
 .textwelcome1 {
   margin-top: 2rem;
-
   font-size: 16px;
   color: #6a5573;
 }
@@ -262,7 +266,6 @@ svg {
   background-size: cover;
   position: relative;
   z-index: 2;
-
   border-radius: 40px 40px 0 0;
 }
 
