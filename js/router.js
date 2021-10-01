@@ -140,3 +140,19 @@ function filterByEmotions(value) {
 function resetFilterByEmotions() {
   document.querySelector("#filterByEmotions").value = "all";
 }
+
+//Hiding the menu which is fighting me - Bara
+/*
+let cUrl = window.location.href;
+
+  if (cUrl.indexOf("home") != -1 ||
+cUrl.indexOf("favorites") != -1 ||
+cUrl.indexOf("settings") != -1 ||
+cUrl.indexOf("timeSelection") != -1 ||
+cUrl.indexOf("allActivities") != -1 ||
+cUrl.indexOf("detailedView") != -1) {
+    menu.style.display  = "flex";
+ } else {
+     menu.style.display  = "none";
+}
+*/

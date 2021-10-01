@@ -13,7 +13,7 @@
 
 <body>
   <!-- navigation menu - Marius -->
-  <nav class="tabbar">
+  <nav> <div class="tabbar" id="menu">
     <div class="menu-item">
       <a href="#/home" class="nav-link">
         <svg xmlns="http://www.w3.org/2000/svg" width="25.048" height="21.917" viewBox="0 0 25.048 21.917">
@@ -40,7 +40,7 @@
             transform="translate(-3.375 -3.375)" />
         </svg><br />Settings</a>
     </div>
-
+  </div>
   </nav>
 
   <!-- pages -->
@@ -69,7 +69,7 @@
 
 
   <section id="welcome" class="page">
-    <header class="topbar">
+    <header>
     </header>
 
     <section class="welcome-wrapper">
@@ -109,7 +109,7 @@
       <div class="arrowbox">
         <div class="arrowmenu"> <img src="img/icons/arrow_left.png" alt="" class="arrowonboard" style="display: none;">
         </div>
-        <a href="#/onboard2">
+        <a onclick="navigateto('#/onboard2');">
           <div class="arrowmenu"> <img src="img/icons/arrow_right.png" alt="" class="arrowonboard"></div>
         </a>
       </div>
@@ -126,11 +126,11 @@
 
 
     <div class="pic-container" style="background-image: url(img/onb_backround.png); ">
-      <img src="img/wavyboi.gif" alt="Bob but hes going through some things" class="wavybob">
+      <img src="img/wavyboi.gif" alt="Bob opening his trust to a stranger" class="wavybob">
     </div>
 
 
-    <div class="welcome-wrapper">
+    <div class="onboard-wrapper">
       <div class="welcome-container">
         <h1 style="letter-spacing: normal; font-size: 30px; color:#6A5573">Hi <span style="color:#F6A580"><b
               class="user-name">Stranger</b></span>!
@@ -150,10 +150,10 @@
   <section id="onboard2" class="page" style="padding: 0;">
     <header class="">
       <div class="arrowbox">
-        <div class="arrowmenu"> <img src="img/icons/arrow_left.png" alt="Arrow pointing left" class="arrowonboard"
-            style="display: none;"></div>
-        <div class="arrowmenu"> <img src="img/icons/arrow_right.png" alt="Arrow pointing right" class="arrowonboard">
-        </div>
+        <a onclick="navigateto('#/onboard1');" > <div class="arrowmenu"> <img src="img/icons/arrow_left.png" alt="Arrow pointing left" class="arrowonboard"
+            style="display: none;"></div></a>
+            <a onclick="navigateto('#/onboard3');" >  <div class="arrowmenu"> <img src="img/icons/arrow_right.png" alt="Arrow pointing right" class="arrowonboard">
+        </div></a>
       </div>
     </header>
 
@@ -189,11 +189,11 @@
   <!-- Onboarding3 - Bara -->
   <section id="onboard3" class="page" style="padding: 0;">
     <header class="">
-      <div class="arrowbox">
+      <div class="arrowbox"> <a onclick="navigateto('#/onboard2');" > 
         <div class="arrowmenu"> <img src="img/icons/arrow_left.png" alt="Arrow pointing left" class="arrowonboard">
-        </div>
-        <div class="arrowmenu"> <img src="img/icons/arrow_right.png" alt="Arrow pointing right" class="arrowonboard">
-        </div>
+        </div></a>
+        <a onclick="navigateto('#/onboard4');" >  <div class="arrowmenu"> <img src="img/icons/arrow_right.png" alt="Arrow pointing right" class="arrowonboard">
+        </div></a>
       </div>
     </header>
 
@@ -208,7 +208,7 @@
 
 
     <div class="pic-container" style="background-image: url(img/onb_backround.png); ">
-      <img src="img/clockboi.gif" alt="Bob but hes going through some things" class="clockbob">
+      <img src="img/clockboi.gif" alt="Bob and his only friend, the clock." class="clockbob">
     </div>
 
 
@@ -231,9 +231,8 @@
   <section id="onboard4" class="page" style="padding: 0;">
     <header class="">
       <div class="arrowbox">
-        <div class="arrowmenu"> <img src="img/icons/arrow_left.png" alt="Arrow pointing left" class="arrowonboard">
-        </div>
-        <a href=""></a>
+        <a onclick="navigateto('#/onboard3');" >  <div class="arrowmenu"> <img src="img/icons/arrow_left.png" alt="Arrow pointing left" class="arrowonboard">
+        </div>  </a>
         <div class="arrowmenu"> <img src="img/icons/arrow_right.png" alt="Arrow pointing right" class="arrowonboard"
             style="display: none;"></div>
       </div>
@@ -250,7 +249,7 @@
 
 
     <div class="pic-container" style="background-image: url(img/onb_backround.png); ">
-      <img src="img/jumpyboi.png" alt="Bob but hes going through some things" class="jumpybob floating">
+      <img src="img/jumpyboi.png" alt="Happy happy boi" class="jumpybob floating">
     </div>
 
 
