@@ -265,14 +265,7 @@ class MoodSelector {
         <article>
         <div>
         <p>${postObject.acf.environment}</p>
-           <a id = "fav-button"
-      onclick = "pushPost()" >
-      <svg xmlns="http://www.w3.org/2000/svg" width="15.969" height="14.184" viewBox="0 0 15.969 14.184">
-      <g id="Icon_feather-heart" data-name="Icon feather-heart" transform="translate(1 1)">
-      <path id="Icon_feather-heart-2" data-name="Icon feather-heart" d="M15.215,5.574a3.675,3.675,0,0,0-5.2,0l-.708.708L8.6,5.574a3.676,3.676,0,1,0-5.2,5.2l.708.708,5.2,5.2,5.2-5.2.708-.708a3.675,3.675,0,0,0,0-5.2Z" transform="translate(-2.323 -4.497)" fill="none" stroke="#583953" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-      </g>
-      </svg>
-      </a>
+        ${this.generateFavPostsButton(postObject.id)}
         </div>
         <h2>${postObject.title.rendered}</h2>
         <p>${postObject.acf.description}</p>
