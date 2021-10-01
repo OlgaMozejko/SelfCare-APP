@@ -87,7 +87,7 @@ function categorySelected(catId) {
     html = "I'm so happy to see you being happy ❤";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
-      "var(--happy-yellow)";
+      "var(--happy-yellow-lower)";
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/happyhappyboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
@@ -106,7 +106,7 @@ function categorySelected(catId) {
     html = "It's ok to feel bored or indecisive sometimes.";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
-      "var(--indiffrent-brown)";
+      "var(--indiffrent-brown-lower)";
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/Indifferentboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
@@ -125,7 +125,7 @@ function categorySelected(catId) {
     html = "It's only natural to feel down somedays 🤗";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
-      "var(--sad-blue)";
+      "var(--sad-blue-lower)";
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/sadboi.png" class="blueboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
@@ -144,7 +144,7 @@ function categorySelected(catId) {
     html = "Everyone feels unmotivated sometimes, don't worry about it.";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
-      "var(--unmotivated-green)";
+      "var(--unmotivated-green-lower)";
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/unmotivatedboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
@@ -164,7 +164,7 @@ function categorySelected(catId) {
       "It's normal to feel tired sometimes, take a deep breath, now it's time to rest.";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
-      "var(--tired-purple)";
+      "var(--tired-purple-lower)";
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/sleepysleepyboi.png" class="sleepyboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
@@ -184,7 +184,7 @@ function categorySelected(catId) {
       "Everyone feels stressed sometimes, I'm proud of you acknowledging it.";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
-      "var(--stressed-grey)";
+      "var(--stressed-grey-lower)";
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/stressedboi.png" class="blueboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
@@ -203,7 +203,7 @@ function categorySelected(catId) {
     html = "It's normal to get angry or frustrated sometimes 🤗";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
-      "var(--frustrated-red)";
+      "var(--frustrated-red-lower)";
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/angryboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
@@ -223,7 +223,7 @@ function categorySelected(catId) {
       "It's hard to deal with anxiety and take care of yourself, I'm happy that you are doing it.";
     document.querySelector("#changing-text").innerHTML += html;
     document.querySelector("#time-selection-wrapper").style.backgroundColor =
-      "var(--anxious-purple)";
+      "var(--anxious-purple-lower)";
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/anxiousboi.png" class="purpleboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
