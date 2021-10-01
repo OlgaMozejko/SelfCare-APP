@@ -357,15 +357,15 @@ saveNameHome();
 window.showEditName = function () {
   let edit = document.querySelector("#edit-name");
   let form = document.querySelector("#save-name");
+  window.saveButton = function () {
+    form.style.display = "none";
+    edit.style.display = "flex";
+  }
   if (form.style.display = "none") {
     form.style.display = "block";
     edit.style.display = "none";
   } else {
-    window.saveButton = function () {
-      form.style.display = "none";
-      edit.style.display = "flex";
-    }
-    window.saveButton();
+    saveButton();
 
   }
 };
