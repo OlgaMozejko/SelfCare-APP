@@ -108,10 +108,12 @@
   <section id="onboard1" class="page" style="padding: 0;">
     <header class="">
       <div class="arrowbox">
-        <div class="arrowmenu"> <img src="img/icons/arrow_left.png" alt="" class="arrowonboard" style="display: none;">
+        <a onclick="navigateto('#/');">
+          <div class="arrowmenu"><img src="img/icons/arrow_left.png" alt="Arrow pointing left to go back" class="arrowonboard">
         </div>
+        </a>
         <a onclick="navigateto('#/onboard2');">
-          <div class="arrowmenu"> <img src="img/icons/arrow_right.png" alt="" class="arrowonboard"></div>
+          <div class="arrowmenu"> <img src="img/icons/arrow_right.png" alt="Arrow pointing right to go next" class="arrowonboard"></div>
         </a>
       </div>
     </header>
@@ -136,10 +138,10 @@
         <h1 style="letter-spacing: normal; font-size: 30px; color:#6A5573">Hi <span style="color:#F6A580"><b
               class="user-name">Stranger</b></span>!
         </h1>
-        <h2 style="letter-spacing: normal; font-size: 16px; color:#6A5573">I'm Selfly - a Self-Care App.
+        <p style="letter-spacing: normal; font-size: 16px; color:#6A5573">I'm Selfly - a Self-Care App.
           <br> No matter how you feel,
           <br> I am here to help you find
-          <br> activities that can improve your mood. </h2>
+          <br> activities that can improve your mood. </p>
         <button type="button" class="btn btn-container" onclick="navigateto('#/onboard2');">Next</button>
       </div>
     </div>
@@ -152,8 +154,7 @@
     <header class="">
       <div class="arrowbox">
         <a onclick="navigateto('#/onboard1');">
-          <div class="arrowmenu"> <img src="img/icons/arrow_left.png" alt="Arrow pointing left" class="arrowonboard"
-              style="display: none;"></div>
+          <div class="arrowmenu"> <img src="img/icons/arrow_left.png" alt="Arrow pointing left" class="arrowonboard"></div>
         </a>
         <a onclick="navigateto('#/onboard3');">
           <div class="arrowmenu"> <img src="img/icons/arrow_right.png" alt="Arrow pointing right" class="arrowonboard">
@@ -180,10 +181,11 @@
     <div class="onboard-wrapper">
       <div class="welcome-container">
         <h1 style="letter-spacing: normal; font-size: 30px; color:#6A5573">Pick The Mood </span></h1>
-        <h2 style="letter-spacing: normal; font-size: 16px; color:#6A5573">How much time do you have today? <br>
-          There are multiple options for <br>
-          you to choose from. </h2>
-        <a href="#/onboard3"> <button type="button" class="btn btn-container" onclick="navigateto('#/onboard3');">Next</button></a>
+        <p style="letter-spacing: normal; font-size: 16px; color:#6A5573">You will start with picking<br> 
+          your mood. How are you feeling <br>
+          today? And if you can't choose, <br>
+          there is a quiz to help you with it. </p>
+        <button type="button" class="btn btn-container" onclick="navigateto('#/onboard3');">Next</button>
 
       </div>
     </div>
@@ -222,10 +224,10 @@
     <div class="onboard-wrapper">
       <div class="welcome-container">
         <h1 style="letter-spacing: normal; font-size: 30px; color:#6A5573">Select The Time </span></h1>
-        <h2 style="letter-spacing: normal; font-size: 16px; color:#6A5573">Get a personalised
-          <br> recommendations. <br>
-          Did you find the best one for <br>
-          you? Favorite it!</h2>
+        <p style="letter-spacing: normal; font-size: 16px; color:#6A5573">How much time do you have<br>
+           today? <br>
+           There are multiple options for<br>
+            you to choose from. </p>
           <button type="button" class="btn btn-container" onclick="navigateto('#/onboard4');" style=" margin-top: 10px;">Next</button>
 
       </div>
@@ -265,10 +267,10 @@
     <div class="onboard-wrapper">
       <div class="welcome-container">
         <h1 style="letter-spacing: normal; font-size: 30px; color:#6A5573">Get An Activity </span></h1>
-        <h2 style="letter-spacing: normal; font-size: 16px; color:#6A5573">Get a personalised <br>
+        <p style="letter-spacing: normal; font-size: 16px; color:#6A5573">Get personalised <br>
           recommendations.
           <br> Did you find the best one<br> for you?
-          Favorite it! </h2>
+          Favorite it! </p>
         <button type="button" class="btn btn-container" onclick="navigateto('#/home'); showMenu();">Get Started</button>
 
       </div>

@@ -226,7 +226,6 @@ svg {
   background-color: white;
   border-radius: 40px 40px 0 0;
   height: 100%;
-
 }
 
 .welcome-container {
@@ -234,10 +233,10 @@ svg {
   text-align: center;
 }
 
-.btn-container{
-  margin-top: 10px;}
+.btn-container {
+  margin-top: 10px;
+}
 
-  
 .textwelcome1 {
   margin-top: 2rem;
   font-size: 16px;
@@ -452,6 +451,10 @@ svg {
   cursor: pointer;
 }
 
+.btn-container {
+  margin-top: 22px;
+}
+
 input {
   font-size: 1em;
   font-family: urbane-rounded, sans-serif;
@@ -529,7 +532,7 @@ select:focus {
   column-gap: 5px;
 }
 
-.filter-container>* {
+.filter-container > * {
   flex: 1;
 }
 
@@ -707,15 +710,15 @@ select:focus {
   transition: 0.4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: var(--peach-dark);
 }
 
-input:focus+.slider {
+input:focus + .slider {
   box-shadow: 0 0 1px var(--peach-dark);
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(29px);
   -ms-transform: translateX(29px);
   transform: translateX(29px);
@@ -969,7 +972,7 @@ select:focus {
   gap: 1.5em;
 }
 
-.activities-container>article {
+.activities-container > article {
   text-align: center;
   padding: 0.7em 2em;
   background-color: var(--peach-dark);
@@ -978,7 +981,7 @@ select:focus {
   color: var(--black);
 }
 
-.activities-container>article>div {
+.activities-container > article > div {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -1024,7 +1027,7 @@ select:focus {
   z-index: 1;
 }
 
-.detailed-view-wrapper>article>div {
+.detailed-view-wrapper > article > div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1032,17 +1035,17 @@ select:focus {
   font-size: 13px;
 }
 
-.detailed-view-wrapper>article {
+.detailed-view-wrapper > article {
   padding: 0.7em 2em;
   color: var(--black);
   padding-top: 60px;
 }
 
-.detailed-view-wrapper>article>h2 {
+.detailed-view-wrapper > article > h2 {
   margin: 0;
 }
 
-.detailed-view-wrapper>article>h3 {
+.detailed-view-wrapper > article > h3 {
   font-weight: 600;
 }
 
