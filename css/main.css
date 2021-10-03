@@ -211,21 +211,25 @@ svg {
 
 /* Bara's amazing styling */
 
+
+
 .welcome-wrapper {
   display: flex;
   padding-top: 50px;
   background-color: white;
   border-radius: 40px 40px 0 0;
-  height: 80%;
+  height: 600px;
 }
 
 .onboard-wrapper {
-  display: flex;
+  position: relative;
+  margin-top: -30px;
   padding-top: 50px;
   padding-bottom: 40px;
   background-color: white;
   border-radius: 40px 40px 0 0;
   height: 100%;
+  z-index: 100;
 }
 
 .welcome-container {
@@ -271,7 +275,7 @@ svg {
 .wavybob {
   height: 400px;
   width: auto;
-  top: -0, 7rem;
+  top: -30px;
   left: 18%;
   position: relative;
   z-index: 3;
@@ -280,7 +284,7 @@ svg {
 .clockbob {
   height: 275px;
   width: auto;
-  top: 3.5rem;
+  top: 35px;
   left: 17%;
   position: relative;
   z-index: 3;
@@ -289,7 +293,7 @@ svg {
 .onboardbob {
   height: 275px;
   width: auto;
-  top: 3.5rem;
+  top: 35px;
   left: 25%;
   position: relative;
   z-index: 3;
@@ -298,7 +302,7 @@ svg {
 .jumpybob {
   height: 250px;
   width: auto;
-  top: 3.5rem;
+  top: 30px;
   left: 37%;
   position: relative;
   z-index: 3;

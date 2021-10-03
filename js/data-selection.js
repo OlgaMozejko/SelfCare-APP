@@ -132,7 +132,7 @@ class MoodSelector {
     // console.log(posts);
     for (let post of posts) {
       html += /*html*/ `
-      <article >
+      <article>
       <h2 onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.title.rendered}</h2>
       <p onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.acf.description}</p>
       <div>
@@ -146,8 +146,11 @@ class MoodSelector {
 
     if (posts.length === 0) {
       html = `
-        <h5>No Activities</h5><br>
+      <article>
+        <h2>No Activities</h2>
         <h5>try again ❤</h5>
+        <br>
+        </article>
       `;
     }
 
