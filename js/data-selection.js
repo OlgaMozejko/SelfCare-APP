@@ -1,7 +1,6 @@
 //----------- Olga ---------------
 
-//fetch data from wordpress headless cms
-//using it for mood-category selecting
+//fetch data from wordpress api - headless cms
 
 class MoodSelector {
   constructor() {
@@ -48,7 +47,7 @@ class MoodSelector {
     this.appendPostsByCategory(this.filtered);
   }
 
-
+  //fetching the data for the home page selection 
   async getPostsByCatAndTag(catId, tagId) {
     let data = await fetch(
       `http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&categories=${catId}&tags=${tagId}`
