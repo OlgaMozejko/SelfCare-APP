@@ -1,7 +1,6 @@
 // -------------- Olga ------------------
 
-//vip need input name...
-//so meantime simple message print out
+//simple message print out
 
 let hr = new Date().getHours();
 let hi = "";
