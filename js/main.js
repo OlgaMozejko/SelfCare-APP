@@ -91,6 +91,8 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/happyhappyboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
+    document.querySelector("#activities-wrapper").style.backgroundColor =
+    "var(--happy-yellow-lower)";
 
     /*------ style for detailed view based on mood category - Vlada ----*/
     document.querySelector("#detailed-view-wrapper").style.backgroundColor =
@@ -110,6 +112,8 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/Indifferentboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
+    document.querySelector("#activities-wrapper").style.backgroundColor =
+    "var(--indiffrent-brown-lower)";
 
     /*------ style for detailed view based on mood category - Vlada ----*/
     document.querySelector("#detailed-view-wrapper").style.backgroundColor =
@@ -129,6 +133,8 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/sadboi.png" class="blueboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
+    document.querySelector("#activities-wrapper").style.backgroundColor =
+    "var(--sad-blue-lower)";
 
     /*------ style for detailed view based on mood category - Vlada ----*/
     document.querySelector("#detailed-view-wrapper").style.backgroundColor =
@@ -148,6 +154,8 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/unmotivatedboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
+    document.querySelector("#activities-wrapper").style.backgroundColor =
+    "var(--unmotivated-green-lower)";
 
     /*------ style for detailed view based on mood category - Vlada ----*/
     document.querySelector("#detailed-view-wrapper").style.backgroundColor =
@@ -168,6 +176,8 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/sleepysleepyboi.png" class="sleepyboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
+    document.querySelector("#activities-wrapper").style.backgroundColor =
+    "var(--tired-purple-lower)";
 
     /*------ style for detailed view based on mood category - Vlada ----*/
     document.querySelector("#detailed-view-wrapper").style.backgroundColor =
@@ -188,6 +198,8 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/stressedboi.png" class="blueboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
+    document.querySelector("#activities-wrapper").style.backgroundColor =
+    "var(--stressed-grey-lower)";
 
     /*------ style for detailed view based on mood category - Vlada ----*/
     document.querySelector("#detailed-view-wrapper").style.backgroundColor =
@@ -207,6 +219,8 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/angryboi.png">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
+    document.querySelector("#activities-wrapper").style.backgroundColor =
+    "var(--frustrated-red-lower)";
 
     /*------ style for detailed view based on mood category - Vlada ----*/
     document.querySelector("#detailed-view-wrapper").style.backgroundColor =
@@ -227,6 +241,8 @@ function categorySelected(catId) {
     document.querySelector("#armyofBobs").innerHTML = "";
     bob = `<img src="img/anxiousboi.png" class="purpleboi">`;
     document.querySelector("#armyofBobs").innerHTML = bob;
+    document.querySelector("#activities-wrapper").style.backgroundColor =
+    "var(--anxious-purple-lower)";
 
     /*------ style for detailed view based on mood category - Vlada ----*/
     document.querySelector("#detailed-view-wrapper").style.backgroundColor =
@@ -255,21 +271,6 @@ window.navigateto = function (id) {
 
 window.filterByEnvironment = (value) => moodSelector.filterByEnvironment(value);
 
-/*window.save_data = function () {
-  if (typeof (Storage) !== "undefined") {
-    let input = document.getElementById('inputName').value;
-    localStorage.setItem('name', input);
-    document.getElementById('inputName').value = localStorage.getItem('name');
-    let storedValue = localStorage.getItem("name");
-    document.querySelector("#user-name").innerHTML = storedValue;
-    console.log(storedValue);
-    navigateTo("#/settings");
-    input = '';
-    return storedValue;
-  } else {
-    alert("Sorry! No Web Storage support..")
-  }
-}*/
 
 // Saves the input value = name, to the Local Storage - Marius
 

@@ -48,12 +48,6 @@ class MoodSelector {
     this.appendPostsByCategory(this.filtered);
   }
 
-  async getPostsByTags(tagId) {
-    let data = await fetch(
-      `http://appcontent.omozejko.com/wp-json/wp/v2/posts?_embed&tags=${tagId}`
-    ).then((res) => res.json());
-    this.appendPostsByTags(data);
-  }
 
   async getPostsByCatAndTag(catId, tagId) {
     let data = await fetch(
@@ -100,38 +94,15 @@ class MoodSelector {
     document.querySelector("#time-select").innerHTML += htmlTemplate;
   }
 
-  appendPostsByTags() {
-    let htmlTemplate = "";
-    for (let post of posts) {
-      htmlTemplate += /*html*/ `
-      <article >
-      <h2 onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.title.rendered}</h2>
-      <p onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.acf.description}</p>
-      <div>
-      <p>${post.acf.environment}</p>
-      ${this.generateFavPostsButton(post.id)}
-      </div>
-      </article>
-    `;
-    }
 
-    if (posts.length === 0) {
-      htmlTemplate = /*html*/ `
-        <p>No Activities</p>
-      `;
-    }
-
-    // document.querySelector('#activities-container').innerHTML = htmlTemplate;
-  }
 
   // --------------------- Olga ---------
   //using this function for mood selection : moods = categories
 
   appendPostsByCatAndTag(posts) {
     let html = "";
-    // console.log(posts);
     for (let post of posts) {
-      html += /*html*/ `
+      html += `
       <article>
       <h2 onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.title.rendered}</h2>
       <p onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.acf.description}</p>
@@ -160,7 +131,7 @@ class MoodSelector {
   appendPostsByCategory(posts) {
     let htmlTemplate = "";
     for (let post of posts) {
-      htmlTemplate += /*html*/ `
+      htmlTemplate +=  `
        <article >
       <h2 onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.title.rendered}</h2>
       <p onclick="showDetailView('${post.id}'); navigateto('#/detailedView');">${post.acf.description}</p>
@@ -171,14 +142,14 @@ class MoodSelector {
       </article>
     `;
     }
-    // if no movies, display feedback to the user
+
     if (posts.length == 0) {
-      htmlTemplate = /*html*/ `
+      htmlTemplate =  `
         <h5>No Activities</h5><br>
         <h5>try again ❤</h5>
       `;
     }
-    console.log(this.favposts);
+    //console.log(this.favposts);
     //document.querySelector("#section-favorites").innerHTML = htmlTemplate;
   }
 
